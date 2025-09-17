@@ -1,0 +1,3509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwaj Wear - Tradition with Elegance</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ================================== */
+    /* === DARK MODE LUXURY THEME START === */
+    /* ================================== */
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #121212; /* Dark background */
+      color: #e0e0e0; /* Light text color */
+      line-height: 1.6;
+    }
+    
+    header {
+      position: sticky;
+      top: 0;
+      background: #1f1f1f; /* Darker header background */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.5); /* Adjusted shadow */
+      z-index: 100;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #e75480;
+    }
+    
+    header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #f5f5f5; /* Lighter nav link color */
+      font-weight: bold;
+      transition: all 0.3s;
+      padding: 8px 15px;
+      border-radius: 20px;
+    }
+    
+    header nav a:hover {
+      background: #90ee90;
+      color: #121212; /* Dark text on hover */
+    }
+    
+    .cart {
+      position: relative;
+      cursor: pointer;
+      font-size: 24px;
+      color: #f5f5f5; /* Light cart icon */
+    }
+    
+    .cart span {
+      position: absolute;
+      top: -8px;
+      right: -15px;
+      background: #90ee90;
+      color: #121212; /* Dark text for count */
+      font-size: 14px;
+      padding: 3px 8px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+    
+    .hero {
+      position: relative; 
+      overflow: hidden; 
+      background: #1f1f1f; /* Dark hero background */
+      height: 90vh; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      color: #fff; /* White title for emphasis */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #e0e0e0; /* Light paragraph text */
+    }
+
+    #shop h2 {
+      color: #e75480;
+    }
+    
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .product-card {
+      background: #1f1f1f; /* Dark card background */
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Adjusted shadow */
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.5); /* Darker shadow on hover */
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+    
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .product-card h3 {
+      margin: 15px 0 8px;
+      font-size: 1.3rem;
+      color: #e75480;
+    }
+    
+    .product-card p {
+      padding: 0 15px;
+      color: #b0b0b0; /* Lighter description text */
+      font-size: 0.95rem;
+    }
+    
+    .product-card .price {
+      color: #e75480;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+    
+    .product-card button {
+      margin: 15px 0 20px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: #90ee90;
+      color: #121212; /* Dark text on button */
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    
+    .product-card button:hover {
+      background: #f8c8dc;
+      color: #121212; /* Dark text on hover */
+      transform: scale(1.05);
+    }
+    
+    .product-detail {
+      display: none;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    
+    .product-detail.active {
+      display: block;
+    }
+    
+    .detail-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: #1f1f1f; /* Dark detail view background */
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+    }
+    
+    .detail-image {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+    
+    .detail-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .image-slider {
+      position: relative;
+    }
+    
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+    }
+    
+    .slider-btn {
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .slider-btn:hover {
+      background: rgba(248, 200, 220, 0.9);
+    }
+    
+    .image-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 8px;
+    }
+    
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #555;
+      cursor: pointer;
+    }
+    
+    .dot.active {
+      background: #e75480;
+    }
+    
+    .detail-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .detail-info h2 {
+      font-size: 2.2rem;
+      color: #e75480;
+      margin-bottom: 15px;
+    }
+    
+    .detail-info .price {
+      font-size: 1.5rem;
+      color: #e75480;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    
+    .detail-info .description {
+      margin: 20px 0;
+      line-height: 1.8;
+      color: #e0e0e0;
+    }
+    
+    .size-chart {
+      margin: 25px 0;
+    }
+    
+    .size-chart h3 {
+      margin-bottom: 15px;
+      color: #e75480;
+    }
+    
+    .size-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .size-option {
+      padding: 10px 15px;
+      border: 2px solid #333; /* Darker border */
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #e0e0e0;
+    }
+    
+    .size-option:hover, .size-option.selected {
+      background: #f8c8dc;
+      color: #121212;
+      border-color: #f8c8dc;
+    }
+
+    .color-option {
+      padding: 10px 15px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    .color-option:hover, .color-option.selected {
+      background: #e75480;
+      color: #fff;
+      border-color: #e75480;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    
+    th, td {
+      border: 1px solid #444; /* Darker table borders */
+      padding: 10px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #333; /* Darker table header */
+    }
+    
+    .add-to-cart-lg {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #90ee90;
+      color: #121212;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 20px;
+      width: 100%;
+    }
+    
+    .add-to-cart-lg:hover {
+      background: #f8c8dc;
+      color: #121212;
+    }
+    
+    .back-button {
+      background: #333;
+      color: #f5f5f5;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .back-button:hover {
+      background: #90ee90;
+      color: #121212;
+    }
+    
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .cart-modal.active {
+      display: flex;
+    }
+    
+    .cart-content {
+      background: #1f1f1f; /* Dark modal background */
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #444; /* Darker border */
+    }
+    
+    .cart-header h2 {
+      color: #e75480;
+    }
+    
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .close-cart:hover {
+      color: #e75480;
+    }
+    
+    .cart-items {
+      margin-bottom: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #333;
+    }
+    
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+    
+    .cart-item-details {
+      flex: 1;
+    }
+    
+    .cart-item-details h4 {
+      margin-bottom: 5px;
+      color: #f5f5f5;
+    }
+    
+    .cart-item-details p {
+      color: #e75480;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .cart-item-details .size, .cart-item-details .color {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+    
+    .remove-item {
+      background: none;
+      border: none;
+      color: #ff6b6b;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    
+    .cart-summary {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 2px solid #444;
+    }
+    
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-weight: 600;
+    }
+    
+    .free-delivery-hint {
+      margin: 12px 0 0;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #2a1a20, #1f2a1a); /* Dark gradient */
+      color: #e0e0e0;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .checkout-btn {
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #90ee90;
+      color: #121212;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      margin-top: 15px;
+    }
+    
+    .checkout-btn:hover {
+      background: #f8c8dc;
+      color: #121212;
+    }
+    
+    .checkout-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1001;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .checkout-modal.active {
+      display: flex;
+    }
+    
+    .checkout-content {
+      background: #1f1f1f;
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .checkout-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #444;
+    }
+    
+    .checkout-header h2 {
+      color: #e75480;
+    }
+    
+    .close-checkout {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .close-checkout:hover {
+      color: #e75480;
+    }
+    
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #ccc;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #555;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #333;
+      color: #f5f5f5;
+    }
+    
+    .submit-order {
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #90ee90;
+      color: #121212;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 15px;
+    }
+    
+    .submit-order:hover {
+      background: #f8c8dc;
+      color: #121212;
+    }
+    
+    #contact {
+      padding: 60px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e1e1e 0%, #121212 100%);
+    }
+    
+    .contact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      text-align: left;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-info h2 {
+      color: #e75480;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+    
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      gap: 15px;
+    }
+    
+    .contact-detail i {
+      font-size: 24px;
+      width: 50px;
+      height: 50px;
+      background: #90ee90;
+      color: #121212;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-form h3 {
+      color: #e75480;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-form input, 
+    .contact-form textarea {
+      margin: 8px 0;
+      padding: 16px;
+      border: 2px solid #555;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #333;
+      color: #f5f5f5;
+    }
+    
+    .contact-form button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background: #90ee90;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    
+    .contact-form button:hover {
+      background: #f8c8dc;
+      color: #121212;
+    }
+    
+    footer {
+      background: #1f1f1f;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+    }
+    
+    footer p {
+      margin: 10px 0;
+      color: #aaa;
+    }
+    
+    .social-icons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      text-decoration: none;
+      color: #e75480;
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+    
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    
+    .pagination-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      max-width: 1400px;
+      margin: 10px auto 50px;
+      padding: 0 40px;
+    }
+    
+    .pagination-controls .arrow-btn {
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: none;
+      background: #333;
+      color: #f5f5f5;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .pagination-controls .page-indicator {
+      text-align: center;
+      font-weight: 700;
+      color: #e75480;
+    }
+    
+    .back-to-top-h3 {
+      text-align: center;
+      margin: 30px 0;
+      cursor: pointer;
+    }
+    
+    .back-to-top-h3 h3 {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #333;
+      color: #e75480;
+      border-radius: 12px;
+    }
+     @media (max-width: 768px) {
+      .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 15px;
+      }
+      
+      .product-card {
+        margin-bottom: 10px;
+      }
+      
+      .product-card img {
+        height: 200px;
+      }
+      
+      .product-card h3 {
+        font-size: 1.1rem;
+        margin: 10px 0 5px;
+      }
+      
+      .product-card p {
+        font-size: 0.85rem;
+        padding: 0 8px;
+      }
+      
+      .product-card .price {
+        font-size: 1rem;
+      }
+      
+      .product-card button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        margin: 10px 0 15px;
+      }
+      
+      header {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+     /* --- CORRECTED CODE FOR SINGLE-LINE MOBILE NAV --- */
+     header nav {
+      margin: 15px 0;
+      display: flex;
+      flex-wrap: nowrap; /* Prevents wrapping */
+      justify-content: center;
+      width: 100%;
+      overflow-x: auto; /* Allows horizontal scrolling on very small screens */
+      /* Hide scrollbar for a cleaner look */
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    header nav::-webkit-scrollbar { /* Chrome, Safari, Opera */
+      display: none;
+    }
+    header nav a {
+      flex-shrink: 0; /* Prevents menu items from shrinking */
+      padding: 6px 12px; /* Adjusted padding */
+      margin: 0; /* Removed margin to use flexbox gap */
+    }
+    /* --- END OF CORRECTION --- */
+    
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .detail-container {
+        flex-direction: column;
+      }
+      
+      .cart-content, .checkout-content {
+        width: 95%;
+        padding: 20px;
+      }
+      
+      .pagination-controls {
+        padding: 0 15px;
+      }
+    }
+    /* ================================== */
+/* === CHATBOT STYLES START HERE === */
+/* ================================== */
+
+#chat-fab {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  width: auto;
+  height: 50px;
+  padding: 0 20px;
+  background: linear-gradient(135deg, #e75480, #c44169);
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#chat-fab:hover {
+  transform: scale(1.1);
+}
+
+#chat-window {
+  position: fixed;
+  bottom: 100px;
+  left: 25px;
+  width: 350px;
+  max-width: 90vw;
+  height: 500px;
+  max-height: 70vh;
+  background: #1f1f1f;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#chat-window.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.chat-header {
+  background: #e75480;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chat-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chat-header #close-chat-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-body {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #2a2a2a;
+}
+
+.chat-message {
+  display: flex;
+  margin-bottom: 15px;
+  max-width: 85%;
+}
+
+.chat-message .message-bubble {
+  padding: 10px 15px;
+  border-radius: 18px;
+  line-height: 1.5;
+}
+
+.chat-message.ai {
+  justify-content: flex-start;
+}
+
+.chat-message.ai .message-bubble {
+  background-color: #3f3f3f;
+  color: #e0e0e0;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message.user {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.chat-message.user .message-bubble {
+  background-color: #e75480;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: #aaa;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #444;
+  flex-shrink: 0;
+}
+
+#chat-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #3f3f3f;
+  margin-right: 10px;
+  color: #e0e0e0;
+}
+
+#chat-input:focus {
+  outline: none;
+}
+
+#send-chat-btn {
+  background: #e75480;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#send-chat-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hero-content {
+  position: relative; 
+  z-index: 3;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  display: flex;
+  animation: slideAnimationTwo 8s infinite ease-in-out;
+  z-index: 1;
+}
+
+.hero-slider img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center; 
+  flex-shrink: 0;
+}
+
+@keyframes slideAnimationTwo {
+  0% { transform: translateX(0%); }
+  45% { transform: translateX(0%); }
+  50% { transform: translateX(-50%); }
+  95% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Riwaj Wear</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+  <div class="cart" onclick="openCart()">🛒<span id="cart-count">0</span></div>
+</header>
+<section id="home" class="hero">
+  <div class="hero-slider">
+    
+    <img src="https://i.postimg.cc/MGKKKCyR/Untitled-design-9.png" alt="Background Image 2">
+    <img src="https://i.postimg.cc/gkm9WvyL/Untitled-design-10.png" alt="Background Image 1">
+  </div>
+  
+  <div class="hero-content">
+    <h1>Welcome to Riwaj Wear</h1>
+    <p>Tradition with Elegance. Discover our unique collection of traditional and modern clothing.</p>
+  </div>
+</section>
+
+<section id="shop">
+  <h2 style="text-align:center; padding:40px 20px 20px; font-size:2.5rem;">Shop Our Collection</h2>
+  <div id="shop-container" class="shop-grid">
+    </div>
+
+  <div class="pagination-controls" id="pagination-controls">
+    <button class="arrow-btn" id="prev-page" onclick="goPrevPage()">← Back</button>
+    <div class="page-indicator" id="page-indicator">Page 1 of 2</div>
+    <button class="arrow-btn" id="next-page" onclick="goNextPage()">Next →</button>
+  </div>
+
+  <div class="back-to-top-h3">
+    <h3 onclick="scrollToTop()">Back to top</h3>
+  </div>
+</section>
+
+<section id="product-detail" class="product-detail">
+  <button class="back-button" onclick="hideProductDetail()">← Back to Products</button>
+  <div class="detail-container">
+    <div class="detail-image">
+      <div class="image-slider">
+        <img id="detail-img" src="" alt="" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'">
+        <div class="slider-nav">
+          <button class="slider-btn" onclick="prevImage()">❮</button>
+          <button class="slider-btn" onclick="nextImage()">❯</button>
+        </div>
+      </div>
+      <div class="image-dots" id="image-dots"></div>
+    </div>
+    <div class="detail-info">
+      <h2 id="detail-title"></h2>
+      <p class="price" id="detail-price"></p>
+      <p class="description" id="detail-description"></p>
+      
+      <div class="size-chart">
+        <h3>Select Size</h3>
+        <div class="size-options" id="size-options"></div>
+        <div id="size-guide"></div>
+      </div>
+      
+      <div class="color-chart" id="color-chart" style="display: none; margin: 25px 0;">
+        <h3 style="margin-bottom: 15px; color: #e75480;">Select Colour</h3>
+        <div class="color-options" id="color-options" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+      </div>
+      
+      <button class="add-to-cart-lg" onclick="addToCartFromDetail()">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<div class="cart-modal" id="cart-modal">
+  <div class="cart-content">
+    <div class="cart-header">
+      <h2>Your Shopping Cart</h2>
+      <button class="close-cart" onclick="closeCart()">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-summary" id="cart-summary">
+      <div class="cart-summary-row"><span>Delivery:</span><span id="delivery-text">Rs. 0.00</span></div>
+      <div class="cart-summary-row"><span>Total Bill:</span><span id="total-bill-text">Rs. 0.00</span></div>
+      <div id="free-delivery-hint" class="free-delivery-hint" style="display:none;">
+        <div id="free-delivery-msg">Add Rs. 0.00 more for Free Delivery</div>
+        <div id="free-delivery-meter"></div>
+      </div>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div class="checkout-modal" id="checkout-modal">
+  <div class="checkout-content">
+    <div class="checkout-header">
+      <h2>Checkout</h2>
+      <button class="close-checkout" onclick="closeCheckout()">×</button>
+    </div>
+    <div style="margin-bottom:12px;">
+      <div style="display:flex; justify-content:space-between; font-weight:700; padding:8px 0;"><span>Delivery:</span><span id="checkout-delivery-text">Rs. 0.00</span></div>
+      <div style="display:flex; justify-content:space-between; font-weight:700; padding:8px 0;"><span>Total Bill:</span><span id="checkout-total-text">Rs. 0.00</span></div>
+    </div>
+    <form class="checkout-form" id="checkout-form">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Shipping Address</label>
+        <input type="text" id="address" required>
+      </div>
+      <button type="submit" class="submit-order">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<section id="about" style="padding:60px 40px; text-align:center;">
+  <h2 style="font-size:2.5rem; margin-bottom:30px;">About Us</h2>
+  <p style="max-width:800px; margin:0 auto; font-size:1.1rem; line-height:1.8;">
+    Riwaj Wear – Tradition with Elegance<br><br>
+    Founded in 2024, Riwaj Wear is a women's clothing brand inspired by the beauty of tradition and the charm of modern fashion. Our collections are crafted with premium fabrics, intricate embroidery, and timeless designs that reflect sophistication and cultural grace. At Riwaj Wear, we believe every woman deserves elegance in her everyday wear and confidence in her festive attire. From casuals to luxury suits, each piece is created with care, comfort, and style. Our mission is to blend heritage with contemporary trends, making fashion not just wearable but unforgettable. Riwaj Wear – where tradition meets elegance.
+  </p>
+</section>
+
+<section id="contact">
+  <div class="contact-container">
+    
+    <div class="contact-form">
+      <h3>Send us a Message</h3>
+      <form id="contact-form">
+        <input type="text" id="contact-name" placeholder="Your Name" required>
+        <input type="email" id="contact-email" placeholder="Your Email" required>
+        <textarea id="contact-message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h2>Contact Us</h2>
+      <div class="contact-detail">
+        <i>✉</i>
+        <div>
+          <h3>Email</h3>
+          <p>Riwajwear123@gmail.com</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <i>📍</i>
+        <div>
+          <h3>Address</h3>
+          <p>Lahore, Pakistan</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <i>📱</i>
+        <div>
+          <h3>Phone</h3>
+          <p>03704787871</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <i>🕒</i>
+        <div>
+          <h3>Opening Hours</h3>
+          <p>Mon to Saturday: 9am to 9pm</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div id="chat-fab">
+  Live Chat 💬
+</div>
+
+<div id="chat-window" class="hidden">
+  <div class="chat-header">
+    <h4>Riwaj Assistant</h4>
+    <button id="close-chat-btn">&times;</button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-message ai">
+      <div class="message-bubble">Hello! How can I help you with your shopping today?</div>
+    </div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="chat-input" placeholder="Ask a question...">
+    <button id="send-chat-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Riwaj Wear. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/riwajthebrand?igsh=bmo2anM0MWgyN3Bh" target="_blank">
+       <h4><span>🌸Insta</span></h4>
+    </a>
+    <a href="https://www.facebook.com/share/1MoPNfaGX2/" target="_blank">
+      <h4><span>🌿Facebook</span></h4>
+    </a>
+  </div>
+</footer>
+
+<script>
+  /***************
+   * CONFIG & STATE
+   ***************/
+  const FREE_DELIVERY_THRESHOLD = 3000;
+  const DELIVERY_FEE = 250;
+  
+  const CHECKOUT_WEBHOOK_URL = "https://riwaj123.app.n8n.cloud/webhook/checkout-order";
+  const CONTACT_WEBHOOK_URL = "https://riwaj123.app.n8n.cloud/webhook/contact-message";
+
+  let cartItems = [];
+  let selectedProduct = null;
+  let selectedSize = null;
+  let selectedColor = null; 
+  let currentImageIndex = 0;
+  let selectedProductImages = [];
+
+  const PER_PAGE = 50;
+  let currentPage = 1;
+  let products = [];
+
+  /***********************
+   * INITIAL RENDERING
+   ***********************/
+  document.addEventListener('DOMContentLoaded', function() {
+     window.scrollTo(0, 0);
+    
+   products = 
+      [
+  {
+    "id": 51,
+    "name": "Cross-Stitch Palazzo Embroidery 2PC",
+    "price": 2700,
+    "short": "Unique Summer Colour | Premium Imported Cotton",
+    "description": "Elevate your style with this beautifully embroidered 2PC, crafted from soft & breathable imported cotton. Perfect to keep you classy & cool all summer long.",
+    "images": [
+      "https://i.postimg.cc/nL5h45nN/51.jpg",
+      "https://i.postimg.cc/B6KQMg6b/51-1.jpg",
+      "https://i.postimg.cc/Hn1WKyc2/51-2.jpg"
+    ],
+    "colors": [{ "name": "Default", "imageIndex": 0 }],
+    "hasDetailedSizeChart": true
+  },
+  {
+    "id": 52,
+    "name": "Lenin Embroidery 2PC",
+    "price": 2600,
+    "short": "Premium Summer Wear | Soft & Comfortable Fabric",
+    "description": "A perfect blend of elegance & comfort – this embroidered 2PC is designed to keep you stylish and cool all summer. A must-have addition to your wardrobe.",
+    "images": [
+      "https://i.postimg.cc/0yykLxQL/52.jpg",
+      "https://i.postimg.cc/K80zzjwG/52-1.jpg",
+      "https://i.postimg.cc/sxPfRg5R/52-2.jpg"
+    ],
+    "colors": [{ "name": "Default", "imageIndex": 0 }],
+    "hasDetailedSizeChart": true
+  },
+  {
+  "id": 53,
+  "name": "Stitched 2 Piece Printed Shirt & Trouser",
+  "price": 3300,
+  "short": "New Summer Collection",
+  "description": "Trendy, lightweight, and stylish – this printed 2PC is crafted with premium grip fabric to give you comfort & elegance all season. Perfect for your summer wardrobe.\n\nFabric: Premium Grip\nSize: Standard (Medium Fit)\n\nShirt Size:\nShoulder: 15\"\nChest: 21\"\nLength: 44\"\n\nTrouser Size:\nWaist Relax: 26\" | Waist Stretch: 42\"\nLength: 38\"",
+  "images": [
+    "https://i.postimg.cc/FsZFW19y/53.jpg",
+    "https://i.postimg.cc/Wbjbw0Pp/53-1.jpg"
+  ],
+  "colors": [
+    {
+      "name": "Default",
+      "imageIndex": 0
+    }
+  ],
+  "hasDetailedSizeChart": true
+},
+  {
+    "id": 54,
+    "name": "Multi-Color Chiffon 3PC",
+    "price": 4700,
+    "short": "Elegant party wear with multiple color options.",
+    "description": "Exquisite chiffon shirt & dupatta with pearl + sequins work, available in various color combinations. Paired with pure Shamooz silk sharara for a graceful look.",
+    "images": [
+      "https://i.postimg.cc/g0wY2D3s/54-orange-pink-black-green.jpg",
+      "https://i.postimg.cc/tTWph4SV/54-Yellow-blue-red-mahandi-purple.jpg",
+      "https://i.postimg.cc/T3NdxS5h/54-3.jpg"
+    ],
+    "colors": [
+      { "name": "Orange", "imageIndex": 0 },
+      { "name": "Pink", "imageIndex": 0 },
+      { "name": "Black", "imageIndex": 0 },
+      { "name": "Black", "imageIndex": 0 },
+      { "name": "Teal Green", "imageIndex": 0 },
+      { "name": "Magenta", "imageIndex": 0 },
+      { "name": "Yellow", "imageIndex": 1 },
+      { "name": "Navy Blue", "imageIndex": 1 },
+      { "name": "Red", "imageIndex": 1 },
+      { "name": "Olive Green", "imageIndex": 1 },
+      { "name": "Dark Purple", "imageIndex": 1 }
+    ],
+    "hasDetailedSizeChart": true
+  },
+  {
+    "id": 55,
+    "name": "Heavy Embroidered 3PC",
+    "price": 4500,
+    "short": "A classy front-open linen shirt with embroidered chiffon dupatta.",
+    "description": "A beautifully embroidered front-open linen shirt, embellished with stylish buttons, paired with linen trouser and an embroidered chiffon dupatta. Fabric: Linen (Shirt & Trouser), Embroidered Chiffon (Dupatta). Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 46–47\".",
+    "images": [
+      "https://i.postimg.cc/28zrZm4V/55.jpg",
+      "https://i.postimg.cc/kMN7GDR0/55-1.jpg",
+      "https://i.postimg.cc/mkS456GL/55-2.jpg"
+    ],
+    "colors": [{ "name": "Default", "imageIndex": 0 }],
+    "hasDetailedSizeChart": true
+  },
+
+      {
+        "id": 56,
+        "name": "Stitched 2 Piece Printed Shirt & Trouser",
+        "price": 3100,
+        "short": "Stylish and comfortable printed set in premium grip fabric.",
+        "description": "Stylish & comfortable 2PC printed set made with premium grip fabric – perfect for casual & summer wear. Lightweight, trendy, and designed for a chic look. Fabric: Premium Grip. Size: Standard (Medium Fit). Shirt Size: Shoulder: 15\", Chest: 21\", Length: 33\". Trouser Size: Waist Relax: 26\" | Waist Stretch: 42\", Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/4dkTNTf4/56.jpg",
+          "https://i.postimg.cc/3xNhtBfh/56-1.jpg",
+          "https://i.postimg.cc/RZYByH2H/56-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 57,
+        "name": "Most Trending Butterfly Kaftan 2PC",
+        "price": 3499,
+        "short": "Luxury Swiss Lawn kaftan with a digital printed design.",
+        "description": "Long baggy digital printed shirt paired with a stylish printed trouser. Crafted from premium Swiss lawn, this butterfly kaftan gives you a classy, flowy look – perfect for summer elegance. Fabric: Swiss Lawn. Size: Free Size. Shirt Size: Chest: Free Size (25/26\"), Length: 51–52\". Flyper Length: 39–40\".",
+        "images": [
+          "https://i.postimg.cc/YSmHHSwy/57-black.jpg",
+          "https://i.postimg.cc/3N35mC0P/57-blue.jpg",
+          "https://i.postimg.cc/4ywC57zn/57-purple.jpg",
+          "https://i.postimg.cc/kX13RSJp/57-red.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Blue", "imageIndex": 1 },
+            { "name": "Purple", "imageIndex": 2 },
+            { "name": "Red", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 58,
+        "name": "Indian Rawsilk Lehnga Choli 3PC",
+        "price": 4499,
+        "short": "Stunning block-printed lehnga choli with an organza dupatta.",
+        "description": "Stunning block-printed front & back lehnga choli, paired with a 3-yard organza dupatta featuring 4-side block print and lace embellishment. Perfect festive wear for a royal look. Fabric: Indian Rawsilk (Lehnga & Choli), Organza (Dupatta). Size: Small, Medium, Large. Choli Size: Chest: S-19\" | M-21\" | L-22–23\", Length: 18\". Lehnga Size: Flair: 250\", Length: 45–46\".",
+        "images": [
+          "https://i.postimg.cc/26fPNFGV/58.jpg",
+          "https://i.postimg.cc/pdjgS1Dw/58-1.jpg",
+          "https://i.postimg.cc/GmVWq1sP/58-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 59,
+        "name": "ZAREEN 3PC – Embroidered Lawn Dress",
+        "price": 5050,
+        "short": "Premium pure cotton lawn with sequence embroidery.",
+        "description": "A most demanding article featuring pure cotton lawn, beautifully crafted with sequence embroidery work, paired with an organza cutwork dupatta. Long-length embroidered shirt with matching trouser for an elegant festive look. Fabric: Pure Cotton Lawn. Size: Small, Medium, Large, XL. Shirt Size: Chest: S-19\" | M-21\" | L-23\" | XL-24\", Length: 45–46\". Trouser Size: Length: 38–39\".",
+        "images": [
+          "https://i.postimg.cc/zXf4NfCS/59.jpg",
+          "https://i.postimg.cc/W36xNFYS/59-1.jpg",
+          "https://i.postimg.cc/vTYkcYpy/59-2.jpg",
+          "https://i.postimg.cc/7hKc7vk2/59-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 60,
+        "name": "BLOOM DIGITAL PRINTED CO-ORD DRESS",
+        "price": 2850,
+        "short": "A classy & vibrant co-ord set in Swiss Lawn.",
+        "description": "A classy & vibrant co-ord set designed in Swiss Lawn, featuring a digital printed shirt with matching flapper. Perfect summer wear with fine stitching and premium finishing. Fabric: Swiss Lawn. Size: Standard. Shirt Size: Chest: 21–22\", Length: 36–37\", Armhole: 9\", Sleeves Length: 19\". Flapper Size: Length: 37\".",
+        "images": [
+          "https://i.postimg.cc/h4sNNmdt/60-pink.jpg",
+          "https://i.postimg.cc/m26JgGVx/60-Blcak-white.jpg",
+          "https://i.postimg.cc/Sx25Xttn/60-light-pink.jpg",
+          "https://i.postimg.cc/13kdDcLJ/60-white.jpg"
+        ],
+        "colors": [
+            { "name": "Pink", "imageIndex": 0 },
+            { "name": "Black & White", "imageIndex": 1 },
+            { "name": "Light Pink", "imageIndex": 2 },
+            { "name": "White", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 61,
+        "name": "VALVET MAXI – Premium Collection",
+        "price": 4700,
+        "short": "Premium velvet maxi with mirror work and tilla embroidery.",
+        "description": "Mirror work with tilla embroidery on premium velvet maxi paired with organza dupatta. Perfect for party and formal wear. Fabric: Velvet (5K) with Organza Dupatta. Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 50\". Maxi Flair: 100+.",
+        "images": [
+          "https://i.postimg.cc/C5xrwvqL/61.jpg",
+          "https://i.postimg.cc/hGV5sQng/61-1.jpg",
+          "https://i.postimg.cc/d1vSxQQC/61-2.jpg",
+          "https://i.postimg.cc/85HnQ8s0/61-3.jpg"
+        ],
+        "colors":[
+           { "name": "Navy Blue ", "imageIndex": 0 },
+            { "name": "Black ", "imageIndex": 1 },
+            { "name": "Dark Purple", "imageIndex": 2 }
+
+
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 62,
+        "name": "LINEN PRET 3PC – Premium Collection",
+        "price": 4600,
+        "short": "Heavy embroidered long linen shirt with chiffon dupatta.",
+        "description": "Heavy embroidered linen shirt (long length) paired with linen pant and chiffon dupatta embellished with lace. Perfect for festive and formal occasions. Fabric: Linen (Shirt & Pant), Chiffon (Dupatta). Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 47–48\".",
+        "images": [
+          "https://i.postimg.cc/8kZnZV2F/62-blue.jpg",
+          "https://i.postimg.cc/Bb7YbxT5/62-green.jpg",
+          "https://i.postimg.cc/X7X1hzWs/62-light-green.jpg",
+          "https://i.postimg.cc/9FSgjYFC/62-zinc.jpg"
+        ],
+        "colors": [
+            { "name": "Navy Blue", "imageIndex": 0 },
+            { "name": "Olive Green", "imageIndex": 1 }
+          
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 63,
+        "name": "DIGITAL PRINTED CO-ORD SET – New Arrival",
+        "price": 2850,
+        "short": "Lightweight and breathable Swiss Lawn co-ord set.",
+        "description": "Good quality stitching with full suit overlock. Lightweight and breathable Swiss Lawn fabric makes it perfect for summer wear. Stylish digital prints add a vibrant and trendy look. Fabric: Swiss Lawn. Size: Standard. Shirt Size: Chest: 21\", Length: 33–34\". Flyper Size: Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/mgHXZ1tM/63.jpg",
+          "https://i.postimg.cc/hG82TF8t/63-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 64,
+        "name": "CHIFFON PRET 3PC – Party Wear",
+        "price": 4200,
+        "short": "Embroidered chiffon shirt with Shamooz silk plazzo.",
+        "description": "Embroidered chiffon shirt paired with embroidered chiffon dupatta and Shamooz silk plazzo. Perfect for festive and party occasions. Fabric: Chiffon (Shirt & Dupatta), Shamooz Silk (Plazzo). Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 36\". Plazzo Size: Length: 40\".",
+        "images": [
+          "https://i.postimg.cc/mkkjvtvP/64.jpg",
+          "https://i.postimg.cc/XJVQg2xc/64-1.jpg",
+          "https://i.postimg.cc/BvfhjZKz/64-2.jpg",
+          "https://i.postimg.cc/vB3X2WNR/64-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 65,
+        "name": "BERRY 3PC SUIT WITH FARSI SALWAR",
+        "price": 4250,
+        "short": "Digital printed silky lawn suit with a Farsi salwar.",
+        "description": "Digital shirt paired with Farsi salwar and digital chiffon dupatta. Perfect for festive and casual occasions. Fabric: Premium Silky Lawn. Size: Small, Medium, Large, XL. Shirt Size: Chest: S-19\" | M-21\" | L-23\" | XL-24\", Length: 37\". Farsi Salwar Size: Length: 38–39\".",
+        "images": [
+          "https://i.postimg.cc/wTS2rx0B/65.jpg",
+          "https://i.postimg.cc/PJ7yTdH2/65-1.jpg",
+          "https://i.postimg.cc/qBDj8xKy/65-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 66,
+        "name": "ROYAL PRET 3PC – Embroidered Lawn Dress",
+        "price": 5000,
+        "short": "Pure cotton lawn 3PC with matching embroidery.",
+        "description": "Embroidered lawn shirt paired with matching embroidered trouser and dupatta. Perfect for festive and casual occasions. Fabric: Pure Cotton Lawn. Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 44–45\". Trouser Size: Length: 38–39\".",
+        "images": [
+          "https://i.postimg.cc/xTbyLDnV/66.jpg",
+          "https://i.postimg.cc/XYdL6Mzk/66-1.jpg",
+          "https://i.postimg.cc/cJcc6RZK/66-2.jpg",
+          "https://i.postimg.cc/mkKYKV3n/66-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 67,
+        "name": "DESIRE DIGITAL CO-ORD 2PC",
+        "price": 3450,
+        "short": "Silky lawn digital co-ord set with brand stitch design.",
+        "description": "Silky lawn digital co-ord set with brand stitch design. Perfect for casual and festive occasions. Fabric: Silky Lawn. Size: Small, Medium, Large, XL. Shirt Size: Chest: S-19\" | M-21\" | L-23\" | XL-24\", Length: 45–46\". Trouser Size: Length: 38–39\".",
+        "images": [
+          "https://i.postimg.cc/633C3FYS/67.jpg",
+          "https://i.postimg.cc/sgYY0YMn/67-1.jpg",
+          "https://i.postimg.cc/N0Q6hKTQ/67-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 68,
+        "name": "GRIP PRINTED 2PC SHIRT & TROUSER",
+        "price": 3400,
+        "short": "Stylish grip printed 2PC set for casual summer wear.",
+        "description": "Stylish grip printed 2PC set perfect for casual summer wear. Comfortable and trendy for daily outings. Fabric: Grip. Size: Standard (M). Shirt Size: Shoulder: 15\", Chest: 21\", Length: 31\". Trouser Size: Length: 38\", Waist Relaxed: 26\", Waist Stretched: 44\".",
+        "images": [
+          "https://i.postimg.cc/tJnPdW0N/68.jpg",
+          "https://i.postimg.cc/KYQnmmrB/68-gray.jpg",
+          "https://i.postimg.cc/XJzdyxPv/68-green.jpg",
+          "https://i.postimg.cc/F1tSTzN5/68-light-red.jpg",
+          "https://i.postimg.cc/wx1b4rg0/68-pink.jpg",
+          "https://i.postimg.cc/8kxX2bCD/68-purple.jpg",
+          "https://i.postimg.cc/ZK3s4y9N/68-red.jpg"
+        ],
+        "colors": [
+            { "name": "Teal Blue", "imageIndex": 0 },
+            { "name": "Light Brown", "imageIndex": 1 },
+            { "name": "Olive Green", "imageIndex": 2 },
+            { "name": "Peach", "imageIndex": 3 },
+            { "name": "Pink", "imageIndex": 4 },
+            { "name": "Purple", "imageIndex": 5 },
+            { "name": "Red", "imageIndex": 6 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 69,
+        "name": "STITCHED 2PC PRINTED SHIRT & TROUSERS",
+        "price": 3050,
+        "short": "Comfortable stitched 2PC cotton set for casual wear.",
+        "description": "Comfortable stitched 2PC cotton set with printed shirt and trousers. Perfect for casual summer wear. Fabric: Cotton. Size: Standard (M). Shirt Size: Shoulder: 16\", Chest: 21\", Length: 36\". Trouser Size: Waist Relaxed: 28\", Waist Stretched: 40\", Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/6pXj35Rm/69-black-white.jpg",
+          "https://i.postimg.cc/SxfZzFfN/69-black.jpg",
+          "https://i.postimg.cc/434W6LWv/69-blue.jpg",
+          "https://i.postimg.cc/R0PXX7Yk/69-pink.jpg"
+        ],
+        "colors": [
+            { "name": "Black & White", "imageIndex": 0 },
+            { "name": "Black", "imageIndex": 1 },
+            { "name": "Blue", "imageIndex": 2 },
+            { "name": "Pink", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 70,
+        "name": "DIGITAL PRINTED LAWN 3PC",
+        "price": 5200,
+        "short": "Digital printed set with embroidered lawn shirt and plazzo.",
+        "description": "Digital printed set with embroidered lawn shirt and plazzo, paired with chiffon printed dupatta with 4-sided lace. Perfect for festive and casual wear. Fabric: Pure Lawn (Shirt & Plazzo), Chiffon (Dupatta). Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 45–46\".",
+        "images": [
+          "https://i.postimg.cc/85jw3FQj/70.jpg",
+          "https://i.postimg.cc/nrm2F6Lx/70-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 71,
+        "name": "WESTERN STYLE RAINBOW MAXI",
+        "price": 3250,
+        "short": "Full flair rainbow maxi with belt and hi-neck upper.",
+        "description": "Western style rainbow maxi with stylish hi-neck upper. Multi velvet balls lace attached all over the top. Full flair rainbow maxi with belt and broach. Perfect for festive occasions. Fabric: Imported Rainbow Moonlight. Size: Standard. Maxi Size: Length: 52\", Chest: 21\".",
+        "images": [
+          "https://i.postimg.cc/xCwG4t34/71-green.jpg",
+          "https://i.postimg.cc/J0j3VZT4/71-light-pink.jpg",
+          "https://i.postimg.cc/y6RyZCV4/71-pink.jpg",
+          "https://i.postimg.cc/DyKdQpZW/71-white.jpg"
+        ],
+        "colors": [
+            { "name": "Shimmer", "imageIndex": 0 },
+            { "name": "Light Pink", "imageIndex": 1 },
+            { "name": "Purple", "imageIndex": 2 },
+            { "name": "Off White", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 72,
+        "name": "LUXURY COTTON LAWN 3PC",
+        "price": 5600,
+        "short": "Luxury cotton lawn with chikankari and lock pearls.",
+        "description": "Luxury Cotton Lawn set with boring style chikankari, lock pearls, cotton lawn shirt & trouser (inner attached) with khaddinet heavy embroidered dupatta. Fabric: Cotton Lawn (Shirt & Trouser), Khaddinet (Dupatta). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 47\".",
+        "images": [
+          "https://i.postimg.cc/m2N3m3zm/72-green.jpg",
+          "https://i.postimg.cc/Y9WYYQBf/72-pink.jpg",
+          "https://i.postimg.cc/zvwhP5By/72-pink1.jpg"
+        ],
+        "colors": [
+            { "name": "Teal ", "imageIndex": 0 },
+            { "name": "Pink", "imageIndex": 1 },
+            
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 73,
+        "name": "SEQUINS EMBROIDERED CHIFFON 3PC",
+        "price": 4700,
+        "short": "Sequins embroidered chiffon shirt with silk trouser.",
+        "description": "Sequins embroidered chiffon shirt with chiffon dupatta and silk embroidered trouser, perfect for party and festive occasions. Fabric: Chiffon (Shirt & Dupatta), Silk (Trouser). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 45\".",
+        "images": [
+          "https://i.postimg.cc/FF00KbZh/73-blue.jpg",
+          "https://i.postimg.cc/RV9KJ3sK/73-brown.jpg",
+          "https://i.postimg.cc/Hs25wpRK/73-brwon.jpg",
+          "https://i.postimg.cc/Sx1MPgyf/73-ferozee.jpg",
+          "https://i.postimg.cc/FHHSGMQK/73-red.jpg"
+        ],
+        "colors": [
+            { "name": "Blue", "imageIndex": 0 },
+            { "name": "Brown", "imageIndex": 1 },
+            { "name": "Ferozee", "imageIndex": 3 },
+            { "name": "Maroon", "imageIndex": 4 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 74,
+        "name": "KATTAN SILK MAXI 2PC",
+        "price": 3900,
+        "short": "Block printed Kattan silk maxi with organza dupatta.",
+        "description": "Kattan silk maxi with block printed front & back, embellished with gotta, paired with 3-yard organza dupatta with 4-sided border. Fabric: Kattan Silk (Maxi), Organza (Dupatta). Size: S, M, L. Maxi Size: Chest: S-19\" | M-21\" | L-22\", Length: 53–54\", Flair: 240+.",
+        "images": [
+          "https://i.postimg.cc/zf9Rz3HL/74-black.jpg",
+          "https://i.postimg.cc/W3gqhj05/74-green.jpg",
+          "https://i.postimg.cc/4y1KQ5Lt/74-yellow.jpg",
+          "https://i.postimg.cc/C50B8tNS/74-yellow1.jpg",
+          "https://i.postimg.cc/SQLz4SSs/74-yellow2.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Green", "imageIndex": 1 },
+            { "name": "Yellow", "imageIndex": 2 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 75,
+        "name": "STITCHED 2PC EMBROIDERED ROYAL COTTON TOP WITH CARGO TROUSER",
+        "price": 3750,
+        "short": "Embroidered royal cotton top with stylish cargo trousers.",
+        "description": "Stitched 2PC set with embroidered royal cotton top and cargo trouser, perfect for casual and semi-formal occasions. Fabric: Cotton. Size: Standard (M). Shirt Size: Shoulder: 16\", Chest: 21\", Length: 35\". Cargo Trouser Size: Waist Relaxed: 28\", Waist Stretched: 40\", Length: 39\".",
+        "images": [
+          "https://i.postimg.cc/3xqk1WBL/75-black.jpg",
+          "https://i.postimg.cc/13XgDDpn/75-mahandi.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Lime Green ", "imageIndex": 1 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 76,
+        "name": "DURE FISHAN EMBROIDERY 2PC",
+        "price": 3799,
+        "short": "Pure lawn 2PC set with embroidered shirt and plazzo.",
+        "description": "Pure lawn 2PC set with embroidered shirt and plazzo. Perfect for casual and festive occasions. Fabric: Pure Lawn. Size: Small, Medium, Large, XL. Shirt Size: Chest: S-19\" | M-21\" | L-23\" | XL-24\", Length: 44–45\". Plazzo Size: Length: 37–38\".",
+        "images": [
+          "https://i.postimg.cc/LsZnbRQm/76.jpg",
+          "https://i.postimg.cc/wT6RTCMk/76-1.jpg",
+          "https://i.postimg.cc/sDwQBTZC/76-2.jpg",
+          "https://i.postimg.cc/rmXK6b7x/76-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 77,
+        "name": "JANNAT EMBROIDERY 2PC (FARSHI)",
+        "price": 3850,
+        "short": "Pure lawn set with embroidered short shirt and farshi salwar.",
+        "description": "Pure lawn 2PC set with embroidered short-length shirt and farshi salwar. Perfect for festive and casual occasions. Fabric: Pure Lawn. Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 36–37\". Farshi Salwar Size: Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/05Cr3VnK/77.jpg",
+          "https://i.postimg.cc/RVVqzwps/77-1.jpg",
+          "https://i.postimg.cc/xCvq95S7/77-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 78,
+        "name": "FANCY MOONLIGHT SITARA SAREE",
+        "price": 4200,
+        "short": "Full fall top trending saree with silk blouse.",
+        "description": "Fancy moonlight sitara saree with silk blouse and silk petty-coat. Full fall top trending saree, perfect for festive and special occasions. Fabric: Imported Moonlight (Saree), Premium Silk (Blouse & Petty-Coat). Size: Standard. Saree Size: Length: 40\", Blouse Chest: 20–21\".",
+        "images": [
+          "https://i.postimg.cc/qqQR37qx/78-black.jpg",
+          "https://i.postimg.cc/CLP5MdWF/78-blue.jpg",
+          "https://i.postimg.cc/vZCm9kYk/78-green.jpg",
+          "https://i.postimg.cc/jjNShcC5/78-pink.jpg",
+          "https://i.postimg.cc/4dQ4D36R/78-red.jpg",
+          "https://i.postimg.cc/V68LZtbF/78-skin.jpg",
+          "https://i.postimg.cc/T1T11bdP/78-2.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Powder Blue", "imageIndex": 1 },
+            { "name": "Green", "imageIndex": 2 },
+            { "name": "Pink", "imageIndex": 3 },
+            { "name": "Red", "imageIndex": 4 },
+            { "name": "Silver Gray ", "imageIndex": 5 },
+            { "name": "Skin", "imageIndex": 6 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 79,
+        "name": "STITCHED 2PC PRINTED SHIRT & TROUSER",
+        "price": 3100,
+        "short": "Stylish stitched 2PC set in premium grip fabric.",
+        "description": "Stylish stitched 2PC set with printed shirt and printed trouser, perfect for casual summer wear. Fabric: Premium Grip. Size: Standard (M). Shirt Size: Shoulder: 15\", Chest: 21\", Length: 33\". Trouser Size: Waist Relaxed: 26\", Waist Stretched: 42\", Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/FFGsG7Fj/79.jpg",
+          "https://i.postimg.cc/brYYpjgD/79-1.jpg",
+          "https://i.postimg.cc/cCDxJ5kD/79-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 80,
+        "name": "ZEENAT EMBROIDERY 2PC (HEAVY EMBROIDERY)",
+        "price": 4050,
+        "short": "Pure lawn set with heavy embroidery on shirt and plazzo.",
+        "description": "Pure lawn 2PC set with heavy embroidery on shirt and plazzo, including embroidery patch on baazo. Perfect for festive and semi-formal occasions. Fabric: Pure Lawn. Size: Small, Medium, Large. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 44–45\". Plazzo Size: Length: 37–38\".",
+        "images": [
+          "https://i.postimg.cc/mDjRd54b/80.jpg",
+          "https://i.postimg.cc/pXTVSRy3/80-1.jpg",
+          "https://i.postimg.cc/65m6Jgvq/80-2.jpg",
+          "https://i.postimg.cc/2SLkzGQw/80-3.jpg",
+          "https://i.postimg.cc/zfmJ3hp1/80-4.jpg",
+          "https://i.postimg.cc/Y0S7Tz2Q/80-5.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 81,
+        "name": "STITCHED 2PC PRINTED SHIRT & TROUSER",
+        "price": 3100,
+        "short": "Stylish stitched 2PC set with printed shirt and trouser.",
+        "description": "Stylish stitched 2PC set with printed shirt and printed trouser, perfect for casual summer wear. Fabric: Premium Grip. Size: Standard. Shirt Size: Shoulder: 15\", Chest: 21\", Length: 33\". Trouser Size: Waist Relaxed: 26\", Waist Stretched: 42\", Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/X7mWD5Ry/81.jpg",
+          "https://i.postimg.cc/fWHDmp5C/81-1.jpg",
+          "https://i.postimg.cc/qR44xd9b/81-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 82,
+        "name": "EMBROIDERED CHIFFON 3PC",
+        "price": 3750,
+        "short": "Chiffon shirt with lace embroidery and cut-work dupatta.",
+        "description": "Chiffon shirt with lace embroidery, cut-work embroidered chiffon dupatta, and shamooz silk plazzo. Fabric: Chiffon (Shirt & Dupatta), Shamooz Silk (Plazzo). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 36\". Plazzo Size: Length: 40\".",
+        "images": [
+          "https://i.postimg.cc/TPX6T6Yd/82-black.jpg",
+          "https://i.postimg.cc/xCfVb3zB/82-light-green.jpg",
+          "https://i.postimg.cc/s29RXNvp/82-skin.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Light Green", "imageIndex": 1 },
+            { "name": "Skin", "imageIndex": 2 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 83,
+        "name": "SEQUINS EMBROIDERED CHIFFON 3PC",
+        "price": 4499,
+        "short": "Chiffon shirt & dupatta with 9mm sequins embroidery.",
+        "description": "Chiffon shirt & dupatta with 9mm sequins embroidery (front & back), embellished with gotta lace and tassels, paired with pure shamooz silk sharara. Fabric: Chiffon (Shirt & Dupatta), Shamooz Silk (Sharara). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 43–44\".",
+        "images": [
+          "https://i.postimg.cc/mkhxmZVw/83-green.jpg",
+          "https://i.postimg.cc/hj2W8Q8v/83-light-green.jpg",
+          "https://i.postimg.cc/2ytsMpKf/83-pink.jpg",
+          "https://i.postimg.cc/sf0CvSD0/83-red.jpg",
+          "https://i.postimg.cc/fTtnXLVW/83-white.jpg",
+          "https://i.postimg.cc/bN7XRhnx/83-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Green", "imageIndex": 0 },
+            { "name": "Pista", "imageIndex": 1 },
+            { "name": "Magnta", "imageIndex": 2 },
+            { "name": "Mahroon", "imageIndex": 3 },
+            { "name": "White", "imageIndex": 4 },
+            { "name": "Yellow", "imageIndex": 5 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 84,
+        "name": "SINDHI EMB LONG LENGTH",
+        "price": 3250,
+        "short": "Premium linen 2PC set with Sindhi embroidery.",
+        "description": "Premium linen 2PC set with embroidered shirt and plazzo, perfect for festive and semi-formal occasions. Fabric: Premium Linen Embroidery. Size: Small, Medium, Large, XL. Shirt Size: Chest: S-19\" | M-21\" | L-23\" | XL-24\", Length: 45–46\". Plazzo Size: Length: 38–39\".",
+        "images": [
+          "https://i.postimg.cc/YSxJkLsR/84.jpg",
+          "https://i.postimg.cc/13wkCj0L/84-1.jpg",
+          "https://i.postimg.cc/XvWTTkQX/84-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 85,
+        "name": "BANA DORA LAWN 2PC",
+        "price": 2450,
+        "short": "Bana Dora lawn 2PC set embellished with lace.",
+        "description": "Bana Dora lawn 2PC set with shirt and trouser, embellished with lace (front & back), perfect for casual and festive occasions. Fabric: Bana Dora Lawn. Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 35\". Trouser Size: Length: 40\".",
+        "images": [
+          "https://i.postimg.cc/HxsFLsGg/85-gray-black.jpg",
+          "https://i.postimg.cc/SsT3YFqz/85-green.jpg",
+          "https://i.postimg.cc/d3hX8HtN/85-pink-black.jpg",
+          "https://i.postimg.cc/mZnKbs8v/85-red-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Gray/Pink", "imageIndex": 0 },
+            { "name": "Teal", "imageIndex": 1 },
+            { "name": "Pink/Black", "imageIndex": 2 },
+            { "name": "Pink/Black", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 86,
+        "name": "HEAVY EMBROIDERED MAXI 3PC",
+        "price": 3000,
+        "short": "Heavy embroidered silk maxi with net bunch dupatta.",
+        "description": "Heavy embroidered silk maxi with mesuri trouser and net bunch dupatta, perfect for festive and semi-formal occasions. Fabric: Silk (Maxi), Mesuri (Trouser), Net (Dupatta). Size: Standard. Maxi Size: Chest: 20\", Length: 50–51\". Trouser Size: Length: 37\".",
+        "images": [
+          "https://i.postimg.cc/3Nzq9Xk8/86-black.jpg",
+          "https://i.postimg.cc/NfrSFzn5/86-blue.jpg",
+          "https://i.postimg.cc/XYShCgMx/86-red.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Blue", "imageIndex": 1 },
+            { "name": "Mahroon", "imageIndex": 2 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 87,
+        "name": "WESTERN LONG COAT MAXI",
+        "price": 3399,
+        "short": "Imported lawn western long coat maxi.",
+        "description": "Imported lawn western long coat maxi, perfect for casual and semi-formal occasions. Fabric: Imported Lawn. Size: Standard. Maxi Size: Length: 48–50\".",
+        "images": [
+          "https://i.postimg.cc/Z58QFy4m/87-olive.jpg",
+          "https://i.postimg.cc/FKhBPsHL/87-orange.jpg",
+          "https://i.postimg.cc/PxxFj3Zf/87-pink.jpg"
+        ],
+        "colors": [
+            { "name": "Lime Green ", "imageIndex": 0 },
+            { "name": "Orange", "imageIndex": 1 },
+            { "name": "Pink", "imageIndex": 2 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 88,
+        "name": "CHIFFON SAREE 3PC",
+        "price": 3000,
+        "short": "6-yard stitched pleated chiffon saree with sequence blouse.",
+        "description": "6-yard stitched pleated chiffon saree with moonlight sequence blouse and shamose silk petticoat, perfect for festive and casual occasions. Fabric: Chiffon (Saree), Moonlight Sequence (Blouse), Shamose Silk (Petticoat). Size: Standard. Blouse Size: Chest: 20\" (Regular) | 23\" (Large), Length: 17–18\". Petticoat Size: Length: 37\".",
+        "images": [
+          "https://i.postimg.cc/Dz5YRkSY/88-blue.jpg",
+          "https://i.postimg.cc/Jn2Y4NcN/88-green.jpg"
+        ],
+        "colors": [
+            { "name": "Blue", "imageIndex": 0 },
+            { "name": "Green", "imageIndex": 1 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 89,
+        "name": "STITCHED 2PC PRINTED SHIRT & TROUSER",
+        "price": 3100,
+        "short": "Stylish stitched 2PC set in premium grip fabric.",
+        "description": "Stylish stitched 2PC set with printed shirt and printed trouser, perfect for casual summer wear. Fabric: Premium Grip. Size: Standard (M). Shirt Size: Shoulder: 15\", Chest: 21\", Length: 33\". Trouser Size: Waist Relaxed: 26\", Waist Stretched: 42\", Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/HWJd03KC/89.jpg",
+          "https://i.postimg.cc/FzkWfYD2/89-1.jpg",
+          "https://i.postimg.cc/3WML23qW/89-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 90,
+        "name": "FLORAL ELEGANCE SMOOKY MAXI",
+        "price": 3100,
+        "short": "Beautiful printed maxi paired with a stylish jacket.",
+        "description": "Beautiful printed maxi paired with jacket – a perfect combo for winter gatherings and year-round style. Fabric: Premium. Size: Free (Chest Stretchable). Maxi Size: Length: 50\". Jacket Size: Length: 18–19\", Chest: 20–21\".",
+        "images": [
+          "https://i.postimg.cc/fW6Z8mnS/90-blue.jpg",
+          "https://i.postimg.cc/zXKN6v8t/90-navy-blue.jpg",
+          "https://i.postimg.cc/RZmmBm0M/90-orange.jpg",
+          "https://i.postimg.cc/13KQRdgD/90-purple.jpg",
+          "https://i.postimg.cc/jjdrDhNm/90-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Blue", "imageIndex": 0 },
+            { "name": "Navy Blue", "imageIndex": 1 },
+            { "name": "Orange", "imageIndex": 2 },
+            { "name": "Purple", "imageIndex": 3 },
+            { "name": "Yellow", "imageIndex": 4 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 91,
+        "name": "SEQUINS EMBROIDERED CHIFFON SAREE 3PC",
+        "price": 4200,
+        "short": "Chiffon saree with 9mm sequins embroidered blouse.",
+        "description": "Chiffon saree with 9mm sequins embroidered blouse and lace-embellished work, perfect for festive and wedding occasions. Fabric: Chiffon (Saree & Blouse). Size: S, M, L. Blouse Size: Chest: S-19\" | M-21\" | L-23\". Saree Size: Length: 40–42\".",
+        "images": [
+          "https://i.postimg.cc/Gp7nGsx2/91-black.jpg",
+          "https://i.postimg.cc/857QHPZb/91-black1.jpg",
+          "https://i.postimg.cc/C19y6Ttp/91-dark-b-ue.jpg",
+          "https://i.postimg.cc/brn77VcD/91-green.jpg",
+          "https://i.postimg.cc/QxGGQD1p/91-navy-blue.jpg",
+          "https://i.postimg.cc/65rszPfF/91-purple.jpg",
+          "https://i.postimg.cc/Qdm2ZWPb/91-red.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Dark Blue", "imageIndex": 2 },
+            { "name": "Green", "imageIndex": 3 },
+            { "name": "Navy Blue", "imageIndex": 4 },
+            { "name": "Purple", "imageIndex": 5 },
+            { "name": "Mahroon", "imageIndex": 6 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 92,
+        "name": "THE NAME OF TRUST 2PC",
+        "price": 3500,
+        "short": "Imported plain romper maxi with a front-open shirt.",
+        "description": "Imported plain romper maxi with imported plain front-open shirt (white color), perfect for festive and casual occasions. Fabric: Imported China Chiffon (Maxi), Plain (Shirt). Size: Standard. Maxi Size: Length: 48\", Chest: 21\", Flair: 120+\". Shirt Size: Length: 26\", Chest: 21\".",
+        "images": [
+          "https://i.postimg.cc/fbg1JQMS/92-black.jpg",
+          "https://i.postimg.cc/26bMW95c/92-blue.jpg",
+          "https://i.postimg.cc/MZBgKLNX/92-brown.jpg",
+          "https://i.postimg.cc/90yk84Zy/92-green.jpg",
+          "https://i.postimg.cc/rFL3dJ2j/92-navy-blue.jpg",
+          "https://i.postimg.cc/L82cWVy5/92-dark-red.jpg",
+          "https://i.postimg.cc/XvvTjY60/92-orange.jpg",
+          "https://i.postimg.cc/sgjLmgXZ/92-red.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Navy Blue", "imageIndex": 1 },
+            { "name": "Brown", "imageIndex": 2 },
+            { "name": "Green", "imageIndex": 3 },
+            { "name": " Blue", "imageIndex": 4 },
+            { "name": "Dark Red", "imageIndex": 5 },
+            { "name": "Orange", "imageIndex": 6 },
+            { "name": "Red", "imageIndex": 7 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 93,
+        "name": "SEQUINS TILLA CHIFFON 3PC",
+        "price": 4600,
+        "short": "Chiffon shirt with gharara and dupatta featuring sequins tilla work.",
+        "description": "Chiffon shirt with gharara and dupatta featuring sequins tilla work, full sleeves inner attached, perfect for weddings and party occasions. Fabric: Chiffon (Shirt, Gharara & Dupatta). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 36\". Gharara Size: Length: 45–46\", Flair: 60\" (1 side).",
+        "images": [
+          "https://i.postimg.cc/d0DxMNGs/93-blue.jpg",
+          "https://i.postimg.cc/zfMPqwkn/93-green.jpg",
+          "https://i.postimg.cc/k4bYGVjL/93-pink.jpg",
+          "https://i.postimg.cc/QCZ4TXwC/93-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Ferozee", "imageIndex": 0 },
+            { "name": "Green", "imageIndex": 1 },
+            { "name": "Magnta", "imageIndex": 2 },
+            { "name": "Yellow", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 94,
+        "name": "STITCHED 2PC PRINTED SHIRT & TROUSER",
+        "price": 3100,
+        "short": "Stylish stitched 2PC set in premium grip fabric.",
+        "description": "Stylish stitched 2PC set with printed shirt and printed trouser, perfect for casual summer wear. Fabric: Premium Grip. Size: Standard. Shirt Size: Shoulder: 15\", Chest: 21\", Length: 33\". Trouser Size: Waist Relaxed: 26\", Waist Stretched: 42\", Length: 38\".",
+        "images": [
+          "https://i.postimg.cc/SNrTnbrQ/94.jpg",
+          "https://i.postimg.cc/gc3BPZLZ/94-1.jpg",
+          "https://i.postimg.cc/65wb6pC1/94-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 95,
+        "name": "PURE RAWSILK 3PC",
+        "price": 4600,
+        "short": "Pure rawsilk shirt with farshi shalwar and embroidered dupatta.",
+        "description": "Pure rawsilk shirt with farshi shalwar and 4-sided embroidered organza dupatta, perfect for festive and party occasions. Fabric: Pure Rawsilk (Shirt & Shalwar), Organza (Dupatta). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-23\", Length: 34\". Shalwar Size: Length: 40\".",
+        "images": [
+          "https://i.postimg.cc/bvKL7yzg/95.jpg",
+          "https://i.postimg.cc/7ZZB7ts3/95-1.jpg",
+          "https://i.postimg.cc/zG2xkw69/95-black.jpg",
+          "https://i.postimg.cc/yNJvpgzW/95-blue.jpg",
+          "https://i.postimg.cc/pTzkxwrH/95-pink.jpg"
+        ],
+        "colors": [
+           
+            { "name": "Black", "imageIndex": 2 },
+            { "name": "Blue", "imageIndex": 3 },
+            { "name": "Pink", "imageIndex": 4 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 96,
+        "name": "RANG SAAZ CO-ORD 2PC",
+        "price": 3250,
+        "short": "Silky lawn 2PC co-ord set with stitched shirt and trouser.",
+        "description": "Silky lawn 2PC co-ord set with stitched shirt and trouser, perfect for casual and festive occasions. Fabric: Silky Lawn. Size: S, M, L, XL. Shirt Size: Chest: S-19\" | M-21\" | L-23\" | XL-24\", Length: 37\". Trouser Size: Length: 38–39\".",
+        "images": [
+          "https://i.postimg.cc/rF8gXYLB/96.jpg",
+          "https://i.postimg.cc/tJbkgBnV/96-1.jpg",
+          "https://i.postimg.cc/05GZ41hG/96-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 97,
+        "name": "CHIFFON MAXI 3PC",
+        "price": 3750,
+        "short": "Chiffon maxi with lace on daman and sleeves.",
+        "description": "Chiffon maxi with lace on daman and sleeves paired with chiffon dupatta featuring lace embellishment, perfect for festive and party occasions. Fabric: Chiffon. Size: S, M, L, XL. Maxi Size: Chest: S-19\" | M-21\" | L-22\" | XL-24\", Length: 53–55\", Flair: 180+\".",
+        "images": [
+          "https://i.postimg.cc/4y15Hpp2/97-black.jpg",
+          "https://i.postimg.cc/MKd5Wb6v/97-blue.jpg",
+          "https://i.postimg.cc/t4J57ZJD/97-dark-pink.jpg",
+          "https://i.postimg.cc/rwH94VtT/97-gray.jpg",
+          "https://i.postimg.cc/3wDFCsgv/97-olive.jpg",
+          "https://i.postimg.cc/d1PmW5BS/97-pink.jpg",
+          "https://i.postimg.cc/G2FP6vg3/97-red.jpg",
+          "https://i.postimg.cc/RhG7Z4zj/97-skin.jpg",
+          "https://i.postimg.cc/XqnKWXtf/97-white.jpg",
+          "https://i.postimg.cc/PfMz4z82/97-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Blue", "imageIndex": 1 },
+            { "name": "Dark Pink", "imageIndex": 2 },
+            { "name": "Gray", "imageIndex": 3 },
+            { "name": "Olive", "imageIndex": 4 },
+            { "name": "Lavender", "imageIndex": 5 },
+            { "name": "Mahroon", "imageIndex": 6 },
+            { "name": "Skin", "imageIndex": 7 },
+            { "name": "White", "imageIndex": 8 },
+            { "name": "Yellow", "imageIndex": 9 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 98,
+        "name": "WESTERN STYLE ROMPER MAXI 2PC",
+        "price": 3499,
+        "short": "Imported georgette 2PC romper maxi set with adjustable romper.",
+        "description": "Imported georget 2PC romper maxi set with adjustable romper, perfect for casual and festive occasions. Fabric: Imported Georget. Size: Medium. Shirt Size: Length: 32\", Chest: 21\". Romper Size: Chest: Easy to fit, adjustable, Length: 48\".",
+        "images": [
+          "https://i.postimg.cc/7Z53wFtW/98.jpg",
+          "https://i.postimg.cc/FsWbtrpS/98-black.jpg",
+          "https://i.postimg.cc/WbbmfFGj/98-black-1.jpg",
+          "https://i.postimg.cc/Gm6k2XZh/98-Mahroon.jpg",
+          "https://i.postimg.cc/43tphzgv/98-Pink.jpg",
+          "https://i.postimg.cc/wvpL57qC/98-red.jpg"
+        ],
+        "colors": [
+          
+            { "name": "Black", "imageIndex": 1 },
+            { "name": "Brwon", "imageIndex": 3 },
+            { "name": "Pink", "imageIndex": 4 },
+            { "name": "Mahroon", "imageIndex": 5 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 99,
+        "name": "KATTAN SILK MAXI + ORGANZA DUPATTA",
+        "price": 3499,
+        "short": "Kattan silk maxi with blocked print and organza dupatta.",
+        "description": "Kattan silk maxi with blocked print paired with 3-yard 4-sided border organza dupatta, perfect for festive and casual occasions. Fabric: Kattan Silk (MaxI), Organza (Dupatta). Size: S, M, L. Maxi Size: Chest: S-19\" | M-21\" | L-22\", Length: 53–54\", Flair: 240\".",
+        "images": [
+          "https://i.postimg.cc/L54P7wZv/99-black.jpg",
+          "https://i.postimg.cc/wvQJwg37/99-black-1.jpg",
+          "https://i.postimg.cc/c1TwYxVz/99-pink.jpg",
+          "https://i.postimg.cc/kX48yrCg/99-purple.jpg",
+          "https://i.postimg.cc/T1kbX0Vx/99-purple-1.jpg",
+          "https://i.postimg.cc/9Fn98xXt/99-white.jpg",
+          "https://i.postimg.cc/cLtnVQrq/99-white1.jpg",
+          "https://i.postimg.cc/QMLTsHTF/99-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Pink", "imageIndex": 2 },
+            { "name": "Purple", "imageIndex": 3 },
+            { "name": "White", "imageIndex": 5 },
+            { "name": "Yellow", "imageIndex": 7 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 100,
+        "name": "HEAVY EMBROIDERED LINEN 3PC",
+        "price": 4499,
+        "short": "Heavy embroidered linen shirt with chiffon dupatta.",
+        "description": "Heavy embroidered linen shirt with linen pant and chiffon dupatta, perfect for festive and semi-formal occasions. Fabric: Linen (Shirt & Pant), Chiffon (Dupatta). Size: S, M, L. Shirt Size: Chest: S-19\" | M-21\" | L-22\", Length: 47–48\". Pant Size: Standard.",
+        "images": [
+          "https://i.postimg.cc/RhbWYFmV/100.jpg",
+          "https://i.postimg.cc/63t42gzw/100-1.jpg",
+          "https://i.postimg.cc/4dP7zPFc/100-2.jpg",
+          "https://i.postimg.cc/fyb35d6r/100-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 1,
+        "name": "Amber Embroidery 2Pc",
+        "price": 2799,
+        "short": "Premium Linen with beautiful embroidery",
+        "description": "Premium Linen 2-piece set with intricate embroidery. Features a stylish shirt and comfortable plazzo.",
+        "images": [
+          "https://i.postimg.cc/vmLMfY35/1-1.jpg",
+          "https://i.postimg.cc/W3NV7BHC/1.jpg",
+          "https://i.postimg.cc/0NqPzMd8/1-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 2,
+        "name": "Juna Embroidery 3PC",
+        "price": 3699,
+        "short": "Premium Collection - Pure Cotton Lawn",
+        "description": "Premium 3-piece set with embroidery on shirt, trousers, and dupatta. Made from pure cotton lawn brand fabric.",
+        "images": [
+          "https://i.postimg.cc/brdj7Q8R/2.jpg",
+          "https://i.postimg.cc/LXxpQydX/2-1.jpg",
+          "https://i.postimg.cc/SR5pkJxb/2-3.jpg" 
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 3,
+        "name": "Warda Emb Long Length",
+        "price": 2599,
+        "short": "Premium Collection - Summer Linen",
+        "description": "Long length embroidery shirt with embroidery plazo. Made from summer linen brand fabric.",
+        "images": [
+          "https://i.postimg.cc/15kZdndp/3.jpg",
+          "https://i.postimg.cc/BQL0NcmS/3-1.jpg",
+          "https://i.postimg.cc/8knGhnBX/3-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 4,
+        "name": "Horiyaa Lawn 3Pc",
+        "price": 3700,
+        "short": "Luxury Premium Lawn Cotton",
+        "description": "Beautiful 3-piece set with embroidery shirt, plain trouser, and shafoon digital dupatta.",
+        "images": [
+          "https://i.postimg.cc/507hS6vQ/4.jpg",
+          "https://i.postimg.cc/d0vcsMw3/4-1.jpg",
+          "https://i.postimg.cc/QdcrZNLv/4-2.jpg",
+          "https://i.postimg.cc/vmzFDPZz/4-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 5,
+        "name": "Bluepret 2Pc",
+        "price": 2600,
+        "short": "Premium Arabic Lawn with Embroidery",
+        "description": "Elegant 2-piece set with embroidery shirt and plain trouser. Made from premium Arabic lawn.",
+        "images": [
+          "https://i.postimg.cc/Sss5Rk5S/5.jpg",
+          "https://i.postimg.cc/k4grSxVd/5-1.jpg",
+          "https://i.postimg.cc/sxMt6s96/5-2.jpg",
+          "https://i.postimg.cc/kGLLLzTn/5-3.jpg",
+          "https://i.postimg.cc/TPTB8rJW/5-4.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 6,
+        "name": "Jhangir Pocket Emb Long Length",
+        "price": 2599,
+        "short": "Double Pocket Design - Premium Linen",
+        "description": "Long length shirt with double pocket embroidery and embroidery trousers. Made from premium summer linen.",
+        "images": [
+          "https://i.postimg.cc/xjW0w4JJ/6.jpg",
+          "https://i.postimg.cc/zfp6qVx2/6-1.jpg",
+          "https://i.postimg.cc/3xXzbLmT/6-2.jpg",
+          "https://i.postimg.cc/gr9BgR0j/6-3.jpg",
+          "https://i.postimg.cc/rFx8MNxh/6-4.jpg",
+          "https://i.postimg.cc/P5HdxvMd/6-5.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 7,
+        "name": "White Violet Emb 2Pc",
+        "price": 3199,
+        "short": "Summer Collection - Pure Lawn",
+        "description": "Beautiful white violet embroidery long length shirt with embroidery plazo. Made from pure lawn brand fabric.",
+        "images": [
+          "https://i.postimg.cc/1RNSrrC9/7.jpg",
+          "https://i.postimg.cc/KYvF7XVV/7-1.jpg",
+          "https://i.postimg.cc/vmqy3qwm/7-2.jpg",
+          "https://i.postimg.cc/63FXN83J/7-3.jpg",
+          "https://i.postimg.cc/sxSRf3QB/7-4.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 8,
+        "name": "Nazneen Embroidery 3Pc",
+        "price": 3899,
+        "short": "Summer Collection - Pure Lawn",
+        "description": "Elegant 3-piece set with embroidery long length shirt, plain trousers, and chiffon embroidered dupatta.",
+        "images": [
+          "https://i.postimg.cc/bwMrvwdg/8.jpg", 
+          "https://i.postimg.cc/0Ky038Kk/8-1.jpg",
+          "https://i.postimg.cc/FsT12Z42/8-2.jpg",
+          "https://i.postimg.cc/bwdd8tYd/8-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 9,
+        "name": "Lina Embroidery 2Pc",
+        "price": 2700,
+        "short": "Luxury Premium Pure Lawn Cotton",
+        "description": "Beautiful embroidery shirt with plain farshi shalwar. Made from luxury premium pure lawn cotton.",
+        "images": [
+          "https://i.postimg.cc/85dzwd4X/9.jpg",
+          "https://i.postimg.cc/TPDw5vD6/9-1.jpg",
+          "https://i.postimg.cc/MTJGy37j/9-2.jpg",
+          "https://i.postimg.cc/HnpsNJPY/9-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 10,
+        "name": "Horiyaa 2Pc",
+        "price": 3099,
+        "short": "Luxury Premium Lawn Cotton",
+        "description": "Elegant embroidery shirt with plain trouser. Made from luxury premium lawn cotton.",
+        "images": [
+          "https://i.postimg.cc/8PXPyzdG/10.jpg",
+          "https://i.postimg.cc/4yBNRJrz/10-1.jpg",
+          "https://i.postimg.cc/zDjfgjVV/10-2.jpg",
+          "https://i.postimg.cc/YqCCfWW8/10-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 11,
+        "name": "Zafa 2Pc Co-Ord Set",
+        "price": 2700,
+        "short": "Luxury Premium Lawn Cotton",
+        "description": "Beautiful co-ord set with embroidery shirt and embroidery trousers. Made from luxury premium lawn cotton.",
+        "images": [
+          "https://i.postimg.cc/PxHtLpHW/11.jpg",
+          "https://i.postimg.cc/fR3W1Q59/11-1.jpg",
+          "https://i.postimg.cc/SxwQh1tt/11-2.jpg",
+          "https://i.postimg.cc/TPgdYjz2/11-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 12,
+        "name": "Sitara 3Pc",
+        "price": 3050,
+        "short": "Luxury Premium Lawn Cotton",
+        "description": "Elegant 3-piece set with embroidery shirt, plain trouser, and shaffon dupatta. Made from luxury premium lawn cotton.",
+        "images": [
+          "https://i.postimg.cc/5y71ksCg/12.jpg",
+          "https://i.postimg.cc/JnQRjr79/12-1.jpg",
+          "https://i.postimg.cc/L562Tcnh/12-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 13,
+        "name": "Grace 2Pc",
+        "price": 2599,
+        "short": "Stone Linen with Embroidery",
+        "description": "Beautiful embroidery shirt with plain trouser. Made from high-quality stone linen fabric.",
+        "images": [
+          "https://i.postimg.cc/wjsH0cT5/13.jpg",
+          "https://i.postimg.cc/gkjG6bCT/13-1.jpg",
+          "https://i.postimg.cc/7YRw3QDY/13-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 14,
+        "name": "Farshi White Shalwar 3Pc",
+        "price": 2400,
+        "short": "Chamki Silk with Arganza Dupatta",
+        "description": "Elegant 3-piece set with chamki silk shirt, farshi shalwar, and soft arganza dupatta.",
+        "images": [
+          "https://i.postimg.cc/TwT6dzjQ/14.jpg",
+          "https://i.postimg.cc/nLbx5jCy/14-1.jpg",
+          "https://i.postimg.cc/mrY4GL9t/14-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 15,
+        "name": "Minsha 2Pc",
+        "price": 2899,
+        "short": "Luxury Premium Lawn Cotton",
+        "description": "Beautiful embroidery shirt with sequence bazo work and farshi shalwar. Made from luxury premium lawn cotton.",
+        "images": [
+          "https://i.postimg.cc/WpWvVfd6/15.jpg",
+          "https://i.postimg.cc/63zNyMYK/15-1.jpg",
+          "https://i.postimg.cc/Wz3cr0Hk/15-2.jpg",
+          "https://i.postimg.cc/qq5VGgPZ/15-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 16,
+        "name": "Kalamkar Green 2Pc",
+        "price": 2599,
+        "short": "Premium Dhank Fabric",
+        "description": "Elegant embroidery shirt with plain trouser. Made from premium dhank fabric.",
+        "images": [
+          "https://i.postimg.cc/JzJVbrPP/16.jpg",
+          "https://i.postimg.cc/X7r0YcFM/16-1.jpg",
+          "https://i.postimg.cc/65Fx22L8/16-2.jpg",
+          "https://i.postimg.cc/8CS842YD/16-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 17,
+        "name": "Malvin 2Pc Co-Ord Set",
+        "price": 2499,
+        "short": "Premium Linen with Elegant Embroidery",
+        "description": "Elegant co-ord set with embroidery shirt and straight fit trousers. Made from premium linen fabric.",
+        "images": [
+          "https://i.postimg.cc/260PzVS8/17.jpg",
+          "https://i.postimg.cc/W46BH9RZ/17-1.jpg",
+          "https://i.postimg.cc/yd1M4FBb/17-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 18,
+        "name": "Daina 2Pc Co-Ord Set",
+        "price": 2700,
+        "short": "Luxury Premium Pure Lawn Cotton",
+        "description": "Beautiful co-ord set with embroidery shirt and plain farshi shalwar. Made from luxury premium pure lawn cotton.",
+        "images": [
+          "https://i.postimg.cc/rFB7F6MW/18.jpg",
+          "https://i.postimg.cc/SR53M39B/18-1.jpg",
+          "https://i.postimg.cc/Y2yJZGPd/18-2.jpg",
+          "https://i.postimg.cc/WbFQvpLT/18-3.jpg"  
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 19,
+        "name": "Western Black Embroidery 2Pc",
+        "price": 2600,
+        "short": "Cotton Fabric with Western Design",
+        "description": "Western style black embroidery shirt with plain trouser. Made from high-quality cotton fabric.",
+        "images": [
+          "https://i.postimg.cc/FRCnM8TY/19.jpg",
+          "https://i.postimg.cc/8zL97yzY/19-1.jpg",
+          "https://i.postimg.cc/s2y87pBg/19-2.jpg",
+          "https://i.postimg.cc/d0BfBLdm/19-3.jpg",
+          "https://i.postimg.cc/cHLb50Bq/19-4.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 20,
+        "name": "Mehar 3PC Digital Co-Ord Set",
+        "price": 3299,
+        "short": "Luxury Premium Poly Lawn",
+        "description": "Beautiful 3-piece digital co-ord set with digital shirt, digital shalwar, and monar dupatta. Made from luxury premium poly lawn.",
+        "images": [
+          "https://i.postimg.cc/qM3ZFmy7/20.jpg",
+          "https://i.postimg.cc/fy3gDCPB/20-1.jpg",
+          "https://i.postimg.cc/brKVJbc8/20-2.jpg",
+          "https://i.postimg.cc/h4w5pFJw/20-3.jpg" 
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 21,
+        "name": "BLACK GULAB EMBROIDERY 2Pc",
+        "price": 2600,
+        "short": "Emb Shirt + Plain Trouser - Cotton",
+        "description": "Emb Shirt + Plain Trouser. Sizes: S | M | L. Fabric: Cotton.",
+        "images": [
+           "https://i.postimg.cc/HnfNkLVq/21.jpg",
+            "https://i.postimg.cc/9QHS3r3T/21-1.jpg",
+            "https://i.postimg.cc/dQXpB545/21-2.jpg",
+            "https://i.postimg.cc/X7ChD9P4/21-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 22,
+        "name": "NOVINA LAWN CO-ORD SET 2Pc",
+        "price": 2700,
+        "short": "Digital Shirt + Trouser - Premium Poly Lawn",
+        "description": "2Pc Digital Co-Ord Set. Sizes: S | M | L | XL. Fabric: Luxury Premium Poly Lawn.",
+        "images": [
+            "https://i.postimg.cc/wvM45NJK/22.jpg",
+            "https://i.postimg.cc/FK9BR8HH/22-1.jpg",
+           "https://i.postimg.cc/Vk9hzm1h/22-2.jpg",
+           "https://i.postimg.cc/fbBg0CVj/22-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 23,
+        "name": "ALYANA EMB 2Pc",
+        "price": 2599,
+        "short": "Emb Shirt + Emb Plazo - Premium Arabic Lawn",
+        "description": "Premium Arabic Lawn with Embroidery Work. Sizes: S | M | L.",
+        "images": [
+          "https://i.postimg.cc/nMbdtwWZ/23.jpg",
+        "https://i.postimg.cc/85YKZCB7/23-1.jpg",
+        "https://i.postimg.cc/tRZppZcm/23-2.jpg",
+        "https://i.postimg.cc/prn04tqq/23-3.jpg" 
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 24,
+        "name": "WHITE/BLUE LAWN 3Pc",
+        "price": 3700,
+        "short": "Emb Shirt + Plain Trouser + Dupatta - Pure Lawn Cotton",
+        "description": "3Pc Lawn Set with Shafoon Dupatta and Lace Work. Sizes: S | M | L | XL.",
+        "images": [
+         "https://i.postimg.cc/xd1V7cH5/24.jpg",
+        "https://i.postimg.cc/HWqHxWDW/24-1.jpg",
+        "https://i.postimg.cc/Z5ZS8f51/24-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 25,
+        "name": "AROOJ LAWN 3Pc",
+        "price": 3299,
+        "short": "Emb Shirt + Emb Plazo + Digital Dupatta - Summer Linen Embroidery",
+        "description": "3Pc with digital dupatta. Sizes: M | L.",
+        "images": [
+          "https://i.postimg.cc/sXBdjqTZ/25.jpg",
+        "https://i.postimg.cc/0yfqcp6r/25-1.jpg",
+        "https://i.postimg.cc/Bv7fG4B0/25-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 26,
+        "name": "ARFA EMBROIDERY LAWN 3Pc",
+        "price": 3799,
+        "short": "Emb Shirt + Emb Trouser - Pure Lawn",
+        "description": "Premium 3Pc Pure Lawn (Brand Fabric). Sizes: S | M | L | XL.",
+        "images": [
+          "https://i.postimg.cc/Jn9wGxFY/26-1.jpg",
+        "https://i.postimg.cc/qqnPnnVJ/26-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 27,
+        "name": "AZMIN LAWN 2Pc",
+        "price": 2700,
+        "short": "Emb Shirt + Plain Trouser - Poly Lawn",
+        "description": "Summer Collection. Sizes: S | M | L | XL.",
+        "images": [
+            "https://i.postimg.cc/h4dWHFJk/27.jpg",
+        "https://i.postimg.cc/wT5KjhQF/27-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 28,
+        "name": "PINK FLORAL DIGITAL PRINTED 2Pc",
+        "price": 2599,
+        "short": "Digital Printed Shirt + Plazo - Silky Lawn",
+        "description": "Summer Collection. Sizes: S | M | L | XL.",
+        "images": [
+           "https://i.postimg.cc/cJb2bTd1/28.jpg",
+        "https://i.postimg.cc/021RvtDb/28-1.jpg",
+        "https://i.postimg.cc/cLdpgrDW/28-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 29,
+        "name": "HIRA DIGITAL PRINT 2Pc",
+        "price": 2599,
+        "short": "Digital Printed Shirt + Printed Trouser - Poly Lawn",
+        "description": "Digital Print, Trendy & Eye-Catching. Sizes: M | L.",
+        "images": [
+            "https://i.postimg.cc/QN5wfpws/29.jpg",
+        "https://i.postimg.cc/DZ4Hkszr/29-1.jpg",
+        "https://i.postimg.cc/cJHPhPy5/29-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 30,
+        "name": "PHULKARI 2Pc",
+        "price": 2600,
+        "short": "Emb Shirt + Plain Trouser - Premium Linen",
+        "description": "Summer Premium Linen set. Sizes: S | M | L.",
+        "images": [
+              "https://i.postimg.cc/dtYXphcC/30.jpg",
+        "https://i.postimg.cc/0jp4rsDr/30-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+       {
+        "id": 31,
+        "name": "DAZZEL EMB LONG LENGTH 2Pc",
+        "price": 2599,
+        "short": "Full Embroidered Shirt + Plain Trouser - Summer Linen",
+        "description": "Long length 2Pc. Sizes: M | L.",
+        "images": [
+            "https://i.postimg.cc/9frNZTZ6/31.jpg",
+        "https://i.postimg.cc/VLWT8zzV/31-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+        {
+        "id": 32,
+        "name": "JENIFER EMB CO-ORD SET",
+        "price": 2599,
+        "short": " Premium Summer Linen Embroidery",
+        "description": "Beautiful 2-piece linen set with intricate embroidery. Perfect for summer occasions.Embroidered Shirt with Embroidered Trouser",
+        "images": [
+               "https://i.postimg.cc/9QXkXsMF/32-black.jpg",
+        "https://i.postimg.cc/sgnNMKQP/32-grey.jpg",
+        "https://i.postimg.cc/nLgSkz1C/32-red.jpg",
+        "https://i.postimg.cc/RFtsbBPG/32-white.jpg" 
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Grey", "imageIndex": 1 },
+            { "name": "Red", "imageIndex": 2 },
+            { "name": "White", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 33,
+        "name": "MATKA DIGITAL MIRROR 2PC",
+        "price": 2599,
+        "short": "Brand Stitch Mirror Work - Grip Silk",
+        "description": "Plazzo Trouser. Sizes: M | L.",
+        "images": [
+             "https://i.postimg.cc/W149crWd/33.jpg",
+        "https://i.postimg.cc/RhQP4TxH/33-1.jpg",
+        "https://i.postimg.cc/pVDcfP5L/33-2.jpg",
+        "https://i.postimg.cc/rFMng75C/33-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 34,
+        "name": "NORAA 3PC",
+        "price": 2800,
+        "short": "Plain White Shirt with Black Fabric Work - China Lawn",
+        "description": "3Pc with Shaffon Dupatta. Sizes: S | M | L | XL.",
+        "images": [
+            "https://i.postimg.cc/q7hjzrd0/34.jpg",
+        "https://i.postimg.cc/52ks40Tn/34-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 35,
+        "name": "SILVIRA 2PC",
+        "price": 3900,
+        "short": "Luxury Premium Pure Lawn Cotton",
+        "description": "Premium 2Pc. Sizes: S | M | L | XL.",
+        "images": [
+            "https://i.postimg.cc/L5TVr6jk/35.jpg",
+        "https://i.postimg.cc/nLyTmWHm/35-0.jpg",
+        "https://i.postimg.cc/7hDVsTJY/35-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 36,
+        "name": "ZIMAL BLUE LAWN 2PC",
+        "price": 3100,
+        "short": "Luxury Premium Pure Lawn Cotton",
+        "description": "2Pc. Sizes: S | M | L | XL.",
+        "images": [
+            "https://i.postimg.cc/3x6ZMq0q/36.jpg",
+        "https://i.postimg.cc/qBXQtQWt/36-1.jpg",
+        "https://i.postimg.cc/HsYzbXC6/36-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 37,
+        "name": "SOFIA EMBROIDERY WORK 2PC",
+        "price": 2300,
+        "short": "Long Neck Embroidered Shirt with Embroidered Plazo - Premium Linen",
+        "description": "Sizes: M | L.",
+        "images": [
+            "https://i.postimg.cc/9f7YcBGQ/37.jpg",
+        "https://i.postimg.cc/9FLpb0mC/37-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 38,
+        "name": "BLUE TOPZ 2PC",
+        "price": 2599,
+        "short": "Emb Shirt + Plazzo - Premium Linen",
+        "description": "Sizes: S | M | L | XL.",
+        "images": [
+              "https://i.postimg.cc/hjnTcRD2/38.jpg",
+        "https://i.postimg.cc/XYXgzWqF/38-1.jpg",
+        "https://i.postimg.cc/DZQQXypV/38-2.jpg",
+        "https://i.postimg.cc/4yL96Kz0/38-3.jpg",
+        "https://i.postimg.cc/Qtq5MYVh/38-4.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 39,
+        "name": "RUBY PINK 2PC (Farshi Shalwar)",
+        "price": 3100,
+        "short": "Emb Shirt + Emb Plazo - Pure Lawn Cotton",
+        "description": "Farshi Shalwar set. Sizes: S | M | L | XL.",
+        "images": [
+             "https://i.postimg.cc/6Qr4Hbrn/39.jpg",
+        "https://i.postimg.cc/sDxSVczC/39-1.jpg",
+        "https://i.postimg.cc/W4LJwcks/39-2.jpg",
+        "https://i.postimg.cc/024Srw5M/39-3.jpg",
+        "https://i.postimg.cc/Bn1KFnth/39-4.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 40,
+        "name": "FIZA LAWN 2PC",
+        "price": 3100,
+        "short": "Embroidered Shirt + Embroidered Plazo - Pure Lawn",
+        "description": "Sizes: S | M | L | XL.",
+        "images": [
+              "https://i.postimg.cc/FFWdnLLW/40.jpg",
+        "https://i.postimg.cc/JnKD8ydh/40-1.jpg",
+        "https://i.postimg.cc/Y094CpJz/40-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+        {
+        "id": 41,
+        "name": "MONOCHROME DIGITAL 2PC",
+        "price": 2700,
+        "short": "Digital Shirt with Digital Plazo - Poly Lawn",
+        "description": "Free size. Chest 22/23. Shirt length 38/39.",
+        "images": [
+             "https://i.postimg.cc/FHcYRCn8/41.jpg",
+        "https://i.postimg.cc/vTN41JyF/41-1.jpg",
+        "https://i.postimg.cc/DySJVwQ2/41-2.jpg",
+        "https://i.postimg.cc/9Fs4cH1y/41-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 42,
+        "name": "HORIYA LAWN 3PC",
+        "price": 3700,
+        "short": "Emb Shirt + Plain Trouser + Dupatta - Luxury Premium Lawn Cotton",
+        "description": "3Pc set. Sizes: S | M | L | XL.",
+        "images": [
+             "https://i.postimg.cc/k4j4Z0B6/42.jpg",
+        "https://i.postimg.cc/bvhs207J/42-1.jpg",
+        "https://i.postimg.cc/zBDvxzXY/42-2.jpg",
+        "https://i.postimg.cc/d0jDRkF9/42-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 43,
+        "name": "IRIS EMBROIDERY 2PC",
+        "price": 2600,
+        "short": "Embroidered Shirt + Plazzo - Premium Linen",
+        "description": "Sizes: S | M | L.",
+        "images": [
+             "https://i.postimg.cc/Gm0pZJhQ/43.jpg",
+        "https://i.postimg.cc/3NdRHtvL/43-1.jpg",
+        "https://i.postimg.cc/tRMJzGK8/43-2.jpg",
+        "https://i.postimg.cc/yY3dQrBx/43-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 44,
+        "name": "GULISTAN EMBOSSED 2PC",
+        "price": 2000,
+        "short": "Embossed Shirt + Trouser - Premium Linen",
+        "description": "Sizes: S | M | L.",
+        "images": [
+           "https://i.postimg.cc/zBfDnx0J/44.jpg",
+        "https://i.postimg.cc/RZc096Wz/44-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 45,
+        "name": "WAVY ORGANZA 3PC",
+        "price": 2499,
+        "short": "Shirt + Plazzo + Dupatta - Organza",
+        "description": "3Pc Organza set. Sizes: S | M | L.",
+        "images": [
+           "https://i.postimg.cc/bNnyHDH2/45.jpg",
+        "https://i.postimg.cc/d1SsnGxG/45-1.jpg",
+        "https://i.postimg.cc/prh2Syw4/45-2.jpg",
+        "https://i.postimg.cc/05F5wdms/45-3.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+      {
+        "id": 46,
+        "name": "INZIA GOWN 3PC",
+        "price": 2899,
+        "short": "Inner + Gown + Plazzo - Silky Lawn",
+        "description": "3Pc gown set. Sizes: S | M | L.",
+        "images": [
+             "https://i.postimg.cc/MpbzNCL6/46.jpg",
+        "https://i.postimg.cc/13Z9WmJ7/46-1.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+           {
+        "id": 47,
+        "name": " EMILY LONG KURTI (Foam Print)",
+        "price": 1500,
+        "short": "Premium  Lenin Long Kurti ",
+        "description":"Luxury Premium 👗 ✨.Perfect for summer occasions.",
+        "images": [
+             "https://i.postimg.cc/W4Nsv9RM/47-black.jpg",
+        "https://i.postimg.cc/Bvm4QxsR/47-maroon.jpg",
+        "https://i.postimg.cc/263mqVSy/47-mehendi.jpg",
+        "https://i.postimg.cc/QtPDchFb/47-yellow.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Maroon", "imageIndex": 1 },
+            { "name": "Mehendi", "imageIndex": 2 },
+            { "name": "Yellow", "imageIndex": 3 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 48,
+        "name": "Avril 2PC",
+        "price": 2600,
+        "short": "Silky Lawn 2Pc",
+        "description": "Silky Lawn 2Pc. Sizes: S | M | L.",
+        "images": [
+           "https://i.postimg.cc/ZndSc23h/48.jpg",
+        "https://i.postimg.cc/141ZYBcV/48-1.jpg",
+        "https://i.postimg.cc/ZYBB2qxJ/48-2.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      },
+        {
+        "id": 49,
+        "name": "Amel 2PC",
+        "price": 2200,
+        "short": "Premium Lenin 👗 ✨",
+        "description": "Premium Lenin 👗 ✨.Perfect for summer occasions.",
+        "images": [
+             "https://i.postimg.cc/kg922v35/49-black.jpg",
+        "https://i.postimg.cc/mgwtC1By/49-dark_maroon.jpg",
+        "https://i.postimg.cc/Pq5N4fqs/49-light_skin.jpg"
+        ],
+        "colors": [
+            { "name": "Black", "imageIndex": 0 },
+            { "name": "Dark Maroon", "imageIndex": 1 },
+            { "name": "Light Skin", "imageIndex": 2 }
+        ],
+        "hasDetailedSizeChart": true
+      },
+      {
+        "id": 50,
+        "name": "Calico Embroidery 3PC",
+        "price": 3150,
+        "short": "3Pc - Premium Lenin with Dupatta",
+        "description": "3Pc set with dupatta. Sizes: S | M | L.",
+        "images": [
+           "https://i.postimg.cc/CMq5JQw1/50.jpg",
+        "https://i.postimg.cc/SsXsBZ8g/50-1.jpg",
+        "https://i.postimg.cc/pdcr1N99/50-2.jpg",
+        "https://i.postimg.cc/sXtXsp4s/50-3.jpg",
+        "https://i.postimg.cc/NFm0M5dT/50-4.jpg"
+        ],
+        "colors": [{ "name": "Default", "imageIndex": 0 }],
+        "hasDetailedSizeChart": false
+      }
+    ];
+
+    renderProducts(currentPage);
+
+    const savedCart = localStorage.getItem('riwajCart');
+    if (savedCart) {
+      cartItems = JSON.parse(savedCart);
+    }
+    updateCartCount();
+    
+    document.getElementById('contact-form').addEventListener('submit', handleContactSubmit);
+  });
+
+  /***********************
+   * PAGINATION FUNCTIONS
+   ***********************/
+  function totalPages() {
+    return Math.ceil(products.length / PER_PAGE);
+  }
+
+  function getThumbnail(p) {
+    if (p.images && p.images.length) return p.images[0];
+    return 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+  }
+
+  function renderProducts(page = 1) {
+    currentPage = page;
+    const shopContainer = document.getElementById("shop-container");
+    shopContainer.innerHTML = '';
+
+    const start = (page - 1) * PER_PAGE;
+    const end = start + PER_PAGE;
+    const pageProducts = products.slice(start, end);
+
+    pageProducts.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      const thumb = getThumbnail(p);
+      card.innerHTML = `
+        <img src="${thumb}" alt="${escapeHtml(p.name)}" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found'">
+        <h3>${escapeHtml(p.name)}</h3>
+        <p>${escapeHtml(p.short || '')}</p>
+        <p class="price">Rs. ${Number(p.price).toFixed(2)}</p>
+        <button class="add-to-cart" data-id="${p.id}">Add to Cart</button>
+      `;
+
+      card.addEventListener('click', function(e) {
+        if (!e.target.classList.contains('add-to-cart')) {
+          showProductDetailById(p.id);
+        }
+      });
+
+      const addToCartBtn = card.querySelector('.add-to-cart');
+      addToCartBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const defaultColor = (p.colors && p.colors.length > 0) ? p.colors[0].name : 'Default';
+        addToCart(p, 'M', defaultColor);
+      });
+
+      shopContainer.appendChild(card);
+    });
+
+    document.getElementById('page-indicator').textContent = `Page ${currentPage} of ${totalPages()}`;
+    document.getElementById('prev-page').style.visibility = currentPage <= 1 ? 'hidden' : 'visible';
+    document.getElementById('next-page').style.visibility = currentPage >= totalPages() ? 'hidden' : 'visible';
+  }
+
+  function goNextPage() { 
+    if (currentPage < totalPages()) {
+      renderProducts(currentPage + 1); 
+      document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+    }
+  }
+
+  function goPrevPage() { 
+    if (currentPage > 1) {
+      renderProducts(currentPage - 1); 
+      document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+    }
+  }
+  
+  function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+  /***********************
+   * PRODUCT DETAIL
+   ***********************/
+  function showProductDetailById(id) {
+    const p = products.find(x => x.id === id);
+    if (p) showProductDetail(p);
+  }
+
+  function showProductDetail(product) {
+    selectedProduct = product;
+    currentImageIndex = 0;
+    selectedSize = null;
+    selectedColor = null;
+
+    selectedProductImages = (product.images && product.images.length) ? product.images.slice() : ['https://via.placeholder.com/600x400?text=Image+Not+Found'];
+    document.getElementById("detail-img").src = selectedProductImages[0];
+
+    const dotsContainer = document.getElementById("image-dots");
+    dotsContainer.innerHTML = '';
+    selectedProductImages.forEach((img, index) => {
+      const dot = document.createElement("div");
+      dot.className = `dot ${index === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => showImage(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    document.getElementById("detail-title").textContent = product.name;
+    document.getElementById("detail-price").textContent = `Rs. ${Number(product.price).toFixed(2)}`;
+    document.getElementById("detail-description").textContent = product.description || '';
+
+    const sizeOptionsContainer = document.getElementById("size-options");
+    sizeOptionsContainer.innerHTML = '';
+    const sizes = ['S','M','L','XL'];
+    sizes.forEach(size => {
+      const sizeOption = document.createElement("div");
+      sizeOption.className = "size-option";
+      sizeOption.textContent = size;
+      sizeOption.addEventListener('click', function(){ selectSize(this); });
+      sizeOptionsContainer.appendChild(sizeOption);
+    });
+    
+    const colorChartContainer = document.getElementById("color-chart");
+    const colorOptionsContainer = document.getElementById("color-options");
+    colorOptionsContainer.innerHTML = '';
+
+    if (product.colors && product.colors.length > 0 && product.colors.some(c => c.name !== "Default")) {
+      product.colors.forEach(color => {
+        const colorOption = document.createElement("div");
+        colorOption.className = "color-option";
+        colorOption.textContent = color.name;
+        colorOption.addEventListener('click', function() {
+          showImage(color.imageIndex);
+          selectedColor = color.name;
+          document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+        colorOptionsContainer.appendChild(colorOption);
+      });
+      colorChartContainer.style.display = 'block';
+    } else {
+      selectedColor = 'Default';
+      colorChartContainer.style.display = 'none';
+    }
+
+    const sizeGuideContainer = document.getElementById("size-guide");
+    sizeGuideContainer.innerHTML = '';
+    if (product.hasDetailedSizeChart) {
+      const title = document.createElement('h3'); 
+      title.textContent = "Size Chart";
+      sizeGuideContainer.appendChild(title);
+    }
+
+    document.getElementById("shop").style.display = "none";
+    document.getElementById("product-detail").classList.add("active");
+    window.scrollTo(0,0);
+  }
+
+  function hideProductDetail() {
+    document.getElementById("product-detail").classList.remove("active");
+    document.getElementById("shop").style.display = "block";
+  }
+
+  function showImage(index) {
+    if (!selectedProductImages || !selectedProductImages.length) return;
+    currentImageIndex = index;
+    document.getElementById("detail-img").src = selectedProductImages[index];
+    document.querySelectorAll('.dot').forEach((d,i)=> d.classList.toggle('active', i===index));
+  }
+  function nextImage(){ if (!selectedProductImages || !selectedProductImages.length) return; let n = currentImageIndex+1; if (n >= selectedProductImages.length) n = 0; showImage(n); }
+  function prevImage(){ if (!selectedProductImages || !selectedProductImages.length) return; let p = currentImageIndex-1; if (p < 0) p = selectedProductImages.length-1; showImage(p); }
+
+  function selectSize(element) {
+    document.querySelectorAll('.size-option').forEach(o=>o.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedSize = element.textContent;
+  }
+
+  function addToCartFromDetail() {
+    if (!selectedSize) {
+      alert("Please select a size first!");
+      return;
+    }
+    if (selectedProduct.colors && selectedProduct.colors.length > 0 && selectedProduct.colors.some(c => c.name !== "Default") && !selectedColor) {
+      alert("Please select a colour!");
+      return;
+    }
+    addToCart(selectedProduct, selectedSize, selectedColor);
+    alert(`Added ${selectedProduct.name} (Size: ${selectedSize}, Colour: ${selectedColor}) to cart!`);
+  }
+
+  /***********************
+   * CART LOGIC
+   ***********************/
+  function addToCart(product, size, color) {
+    const existingIndex = cartItems.findIndex(i => i.id === product.id && i.size === size && i.color === color);
+    const imgForCart = (product.images && product.images[0]) || 'https://via.placeholder.com/80';
+
+    if (existingIndex >= 0) {
+      cartItems[existingIndex].quantity += 1;
+    } else {
+      cartItems.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        img: imgForCart,
+        size: size || 'M',
+        color: color || 'Default',
+        quantity: 1
+      });
+    }
+    saveCart();
+    updateCartCount();
+    updateCartDisplay();
+  }
+
+  function saveCart() {
+    localStorage.setItem('riwajCart', JSON.stringify(cartItems));
+  }
+
+  function updateCartCount() {
+    const cartCount = cartItems.reduce((s,i) => s + i.quantity, 0);
+    document.getElementById('cart-count').textContent = cartCount;
+  }
+
+  function updateCartDisplay() {
+    const cartItemsContainer = document.getElementById("cart-items");
+    cartItemsContainer.innerHTML = '';
+    let subtotal = 0;
+    if (cartItems.length === 0) {
+      cartItemsContainer.innerHTML = '<p style="text-align:center; color:#777;">Your cart is empty.</p>';
+    }
+    cartItems.forEach((item, index) => {
+      subtotal += item.price * item.quantity;
+      const el = document.createElement('div');
+      el.className = 'cart-item';
+      el.innerHTML = `
+        <img src="${item.img}" alt="${escapeHtml(item.name)}" onerror="this.src='https://via.placeholder.com/80x80?text=Image+Not+Found'">
+        <div class="cart-item-details">
+          <h4>${escapeHtml(item.name)}</h4>
+          <p>Rs. ${Number(item.price).toFixed(2)} × ${item.quantity}</p>
+          <p class="size">Size: ${escapeHtml(item.size)}</p>
+          <p class="color">Colour: ${escapeHtml(item.color)}</p> </div>
+        <div style="display:flex;flex-direction:column;gap:6px; margin: 0 10px;">
+          <button style="padding:6px 10px;border-radius:8px;border:none;background:#333;color:#fff;cursor:pointer;" onclick="increaseQty(${index})">+</button>
+          <button style="padding:6px 10px;border-radius:8px;border:none;background:#333;color:#fff;cursor:pointer;" onclick="decreaseQty(${index})">-</button>
+        </div>
+        <button class="remove-item" onclick="removeFromCart(${index})">×</button>
+      `;
+      cartItemsContainer.appendChild(el);
+    });
+
+    const deliveryFee = subtotal < FREE_DELIVERY_THRESHOLD && subtotal > 0 ? DELIVERY_FEE : 0;
+    const totalBill = subtotal + deliveryFee;
+    document.getElementById('delivery-text').textContent = deliveryFee > 0 ? `Rs. ${deliveryFee.toFixed(2)}` : 'Free';
+    document.getElementById('total-bill-text').textContent = `Rs. ${totalBill.toFixed(2)}`;
+
+    const freeHint = document.getElementById('free-delivery-hint');
+    const freeMsg = document.getElementById('free-delivery-msg');
+    if (subtotal > 0 && subtotal < FREE_DELIVERY_THRESHOLD) {
+      const moreNeeded = FREE_DELIVERY_THRESHOLD - subtotal;
+      freeMsg.textContent = `Add Rs. ${moreNeeded.toFixed(2)} more for Free Delivery`;
+      freeHint.style.display = 'flex';
+    } else {
+      freeHint.style.display = 'none';
+    }
+
+    document.getElementById('checkout-delivery-text').textContent = deliveryFee > 0 ? `Rs. ${deliveryFee.toFixed(2)}` : 'Free';
+    document.getElementById('checkout-total-text').textContent = `Rs. ${totalBill.toFixed(2)}`;
+
+    saveCart();
+  }
+
+  function increaseQty(index) {
+    cartItems[index].quantity += 1;
+    updateCartCount();
+    updateCartDisplay();
+  }
+  function decreaseQty(index) {
+    if (cartItems[index].quantity > 1) {
+      cartItems[index].quantity -= 1;
+    } else {
+      cartItems.splice(index,1);
+    }
+    updateCartCount();
+    updateCartDisplay();
+  }
+
+  function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    updateCartCount();
+    updateCartDisplay();
+  }
+
+  function openCart() {
+    updateCartDisplay();
+    document.getElementById('cart-modal').classList.add('active');
+  }
+  function closeCart() {
+    document.getElementById('cart-modal').classList.remove('active');
+  }
+
+  /***********************
+   * CHECKOUT FLOW
+   ***********************/
+  function openCheckout() {
+    if (cartItems.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+    document.getElementById('checkout-modal').classList.add('active');
+    closeCart();
+  }
+
+  function closeCheckout() {
+    document.getElementById('checkout-modal').classList.remove('active');
+  }
+
+  document.getElementById('checkout-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('fullname').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    
+    const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const deliveryFee = subtotal < FREE_DELIVERY_THRESHOLD && subtotal > 0 ? DELIVERY_FEE : 0;
+    const total = subtotal + deliveryFee;
+    
+    const orderData = {
+      customer: { name, email, phone, address },
+      order: { items: cartItems, subtotal, deliveryFee, total }
+    };
+    
+    const submitBtn = document.querySelector('.submit-order');
+    try {
+      submitBtn.textContent = 'Placing Order...';
+      submitBtn.disabled = true;
+      
+      const response = await fetch(CHECKOUT_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        alert(result.message || `✅ Order received successfully!\n\nHey ${name}, thanks for shopping with us 💓. We will contact you soon at ${email} or on phone ${phone}`);
+        cartItems = [];
+        saveCart();
+        updateCartCount();
+        updateCartDisplay();
+        closeCheckout();
+        document.getElementById('checkout-form').reset();
+      } else {
+        throw new Error(result.message || 'Failed to place order');
+      }
+    } catch (error) {
+      console.error('Error placing order:', error);
+      alert(`Error placing order: ${error.message}. Please try again or contact us directly.`);
+    } finally {
+      submitBtn.textContent = 'Place Order';
+      submitBtn.disabled = false;
+    }
+  });
+
+  /***********************
+   * CONTACT FORM HANDLING
+   ***********************/
+  async function handleContactSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    const contactData = { name, email, message };
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    
+    try {
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      const response = await fetch(CONTACT_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(contactData)
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        alert(result.message || `Thank you ${name}, we got your message and will reply on email soon!`);
+        e.target.reset();
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert(`Error sending message: ${error.message}. Please try again or contact us directly.`);
+    } finally {
+      submitBtn.textContent = 'Send Message';
+      submitBtn.disabled = false;
+    }
+  }
+
+  /***********************
+   * UTILITY FUNCTIONS
+   ***********************/
+  function escapeHtml(text) {
+    const map = {
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    };
+    return String(text).replace(/[&<>"']/g, function(m) { return map[m]; });
+  }
+
+  // --- CHATBOT SCRIPT ---
+  const chatFab = document.getElementById('chat-fab');
+  const chatWindow = document.getElementById('chat-window');
+  const closeChatBtn = document.getElementById('close-chat-btn');
+  const chatBody = document.getElementById('chat-body');
+  const chatInput = document.getElementById('chat-input');
+  const sendChatBtn = document.getElementById('send-chat-btn');
+
+  let chatSessionId = null;
+
+  function getSessionId() {
+    if (sessionStorage.getItem('riwajChatSessionId')) {
+      return sessionStorage.getItem('riwajChatSessionId');
+    } else {
+      const newId = 'riwaj-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+      sessionStorage.setItem('riwajChatSessionId', newId);
+      return newId;
+    }
+  }
+
+  function toggleChatWindow() {
+    chatWindow.classList.toggle('hidden');
+  }
+
+  function addMessageToChat(sender, message) {
+    const messageElement = document.createElement('div');
+    messageElement.className = `chat-message ${sender}`;
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+    bubble.textContent = message;
+    messageElement.appendChild(bubble);
+    chatBody.appendChild(messageElement);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+  
+  function showTypingIndicator(show) {
+      let indicator = document.getElementById('typing-indicator');
+      if (show) {
+          if (!indicator) {
+              indicator = document.createElement('div');
+              indicator.id = 'typing-indicator';
+              indicator.className = 'chat-message ai';
+              indicator.innerHTML = `
+                  <div class="typing-indicator">
+                      <span></span><span></span><span></span>
+                  </div>`;
+              chatBody.appendChild(indicator);
+              chatBody.scrollTop = chatBody.scrollHeight;
+          }
+      } else {
+          if (indicator) {
+              indicator.remove();
+          }
+      }
+  }
+
+  async function sendMessage() {
+    const messageText = chatInput.value.trim();
+    if (messageText === '') return;
+
+    addMessageToChat('user', messageText);
+    chatInput.value = '';
+    showTypingIndicator(true);
+
+    try {
+      const response = await fetch("https://riwaj123.app.n8n.cloud/webhook/chatbot", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: messageText,
+          sessionID: chatSessionId,
+        }),
+      });
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      showTypingIndicator(false);
+      const aiReply = data.reply || "Sorry, I couldn't understand that.";
+      addMessageToChat('ai', aiReply);
+
+    } catch (error) {
+      console.error('Error with chatbot:', error);
+      showTypingIndicator(false);
+      addMessageToChat('ai', 'Sorry, I am having trouble connecting. Please try again.');
+    }
+  }
+
+  chatFab.addEventListener('click', toggleChatWindow);
+  closeChatBtn.addEventListener('click', toggleChatWindow);
+  sendChatBtn.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  });
+
+  chatSessionId = getSessionId();
+
+</script>
+</body>
+</html>
